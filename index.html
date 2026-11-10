@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en" class="dark scroll-smooth">
 <head>
@@ -91,37 +92,51 @@
                 </div>
                 <div>
                     <span class="font-heading font-black text-xl tracking-wider text-white">MOUNIB<span class="text-amberGlow">.</span></span>
-                    <span class="block text-[10px] tracking-widest text-gray-400 font-semibold uppercase">Physique Coaching</span>
+                    <span class="block text-[10px] tracking-widest text-gray-400 font-semibold uppercase" data-i18n="tagline">Physique Coaching</span>
                 </div>
             </a>
 
             <!-- Desktop Nav -->
             <nav class="hidden md:flex items-center gap-8">
-                <a href="#programs" class="text-sm font-medium text-gray-300 hover:text-amberGlow transition-colors">Programs</a>
-                <a href="#calculator" class="text-sm font-medium text-gray-300 hover:text-amberGlow transition-colors">Macro Calculator</a>
-                <a href="#payment" class="text-sm font-medium text-gray-300 hover:text-amberGlow transition-colors">Payment Options</a>
-                <a href="#faq" class="text-sm font-medium text-gray-300 hover:text-amberGlow transition-colors">FAQ</a>
+                <a href="#programs" class="text-sm font-medium text-gray-300 hover:text-amberGlow transition-colors" data-i18n="nav_programs">Programs</a>
+                <a href="#calculator" class="text-sm font-medium text-gray-300 hover:text-amberGlow transition-colors" data-i18n="nav_calculator">Macro Calculator</a>
+                <a href="#payment" class="text-sm font-medium text-gray-300 hover:text-amberGlow transition-colors" data-i18n="nav_payment">Payment Options</a>
+                <a href="#faq" class="text-sm font-medium text-gray-300 hover:text-amberGlow transition-colors" data-i18n="nav_faq">FAQ</a>
             </nav>
 
             <div class="hidden md:flex items-center gap-4">
-                <button onclick="openModal()" class="px-5 py-2.5 rounded-xl bg-amberGlow text-obsidian font-heading font-bold text-sm tracking-wide hover:bg-amberHover transition-all shadow-amber-glow hover:shadow-amber-glow-lg active:scale-95">
+                <!-- Language Switcher Desktop -->
+                <div class="flex items-center bg-surface border border-white/10 rounded-xl p-1 gap-1 text-xs font-bold">
+                    <button onclick="setLanguage('en')" id="lang-btn-en" class="px-2.5 py-1 rounded-lg text-amberGlow bg-amberGlow/10 transition-colors">EN</button>
+                    <button onclick="setLanguage('tr')" id="lang-btn-tr" class="px-2.5 py-1 rounded-lg text-gray-400 hover:text-white transition-colors">TR</button>
+                    <button onclick="setLanguage('ar')" id="lang-btn-ar" class="px-2.5 py-1 rounded-lg text-gray-400 hover:text-white transition-colors">AR</button>
+                </div>
+
+                <button onclick="openModal()" class="px-5 py-2.5 rounded-xl bg-amberGlow text-obsidian font-heading font-bold text-sm tracking-wide hover:bg-amberHover transition-all shadow-amber-glow hover:shadow-amber-glow-lg active:scale-95" data-i18n="btn_apply_now">
                     APPLY NOW 🔥
                 </button>
             </div>
 
-            <!-- Mobile menu button -->
-            <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-gray-300 hover:text-white focus:outline-none">
-                <i id="mobile-menu-icon" class="fas fa-bars text-xl"></i>
-            </button>
+            <!-- Mobile Right Controls -->
+            <div class="flex md:hidden items-center gap-3">
+                <div class="flex items-center bg-surface border border-white/10 rounded-xl p-1 text-[11px] font-bold">
+                    <button onclick="setLanguage('en')" id="lang-btn-mob-en" class="px-2 py-0.5 rounded text-amberGlow bg-amberGlow/10">EN</button>
+                    <button onclick="setLanguage('tr')" id="lang-btn-mob-tr" class="px-2 py-0.5 rounded text-gray-400">TR</button>
+                    <button onclick="setLanguage('ar')" id="lang-btn-mob-ar" class="px-2 py-0.5 rounded text-gray-400">AR</button>
+                </div>
+                <button onclick="toggleMobileMenu()" class="p-2 text-gray-300 hover:text-white focus:outline-none">
+                    <i id="mobile-menu-icon" class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
         </div>
 
         <!-- Mobile Dropdown Menu -->
         <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-obsidian/95 px-4 pt-4 pb-6 space-y-3">
-            <a href="#programs" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-surface hover:text-amberGlow">Programs</a>
-            <a href="#calculator" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-surface hover:text-amberGlow">Macro Calculator</a>
-            <a href="#payment" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-surface hover:text-amberGlow">Payment Options</a>
-            <a href="#faq" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-surface hover:text-amberGlow">FAQ</a>
-            <button onclick="toggleMobileMenu(); openModal();" class="w-full mt-2 px-5 py-3 rounded-xl bg-amberGlow text-obsidian font-heading font-bold text-center tracking-wide shadow-amber-glow">
+            <a href="#programs" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-surface hover:text-amberGlow" data-i18n="nav_programs">Programs</a>
+            <a href="#calculator" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-surface hover:text-amberGlow" data-i18n="nav_calculator">Macro Calculator</a>
+            <a href="#payment" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-surface hover:text-amberGlow" data-i18n="nav_payment">Payment Options</a>
+            <a href="#faq" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-surface hover:text-amberGlow" data-i18n="nav_faq">FAQ</a>
+            <button onclick="toggleMobileMenu(); openModal();" class="w-full mt-2 px-5 py-3 rounded-xl bg-amberGlow text-obsidian font-heading font-bold text-center tracking-wide shadow-amber-glow" data-i18n="btn_apply_now">
                 APPLY NOW 🔥
             </button>
         </div>
@@ -133,26 +148,26 @@
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
             <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-amberGlow/40 text-amberGlow text-xs font-semibold uppercase tracking-wider mb-8 shadow-amber-glow">
-                <i class="fas fa-bolt"></i> High-Intensity Training & Recomposition
+                <i class="fas fa-bolt"></i> <span data-i18n="hero_badge">High-Intensity Training & Recomposition</span>
             </div>
 
             <h1 class="font-heading font-black text-4xl sm:text-6xl lg:text-7xl tracking-tight text-white max-w-5xl mx-auto leading-tight sm:leading-none">
-                Transform Your Physique <br />
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amberGlow to-yellow-500">
+                <span data-i18n="hero_title_1">Transform Your Physique</span> <br />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amberGlow to-yellow-500" data-i18n="hero_title_2">
                     Without Junk Volume.
                 </span>
             </h1>
 
-            <p class="mt-6 text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto font-normal leading-relaxed">
+            <p class="mt-6 text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto font-normal leading-relaxed" data-i18n="hero_subtitle">
                 Elite 1-on-1 coaching by Coach Mounib Daghfous. Mechanical failure training, precise dynamic nutrition, and direct 24/7 WhatsApp accountability.
             </p>
 
             <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
                 <button onclick="openModal()" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-amberGlow text-obsidian font-heading font-extrabold text-base tracking-wide hover:bg-amberHover transition-all shadow-amber-glow hover:shadow-amber-glow-lg transform hover:-translate-y-0.5">
-                    START 1-ON-1 COACHING <i class="fas fa-arrow-right ml-2"></i>
+                    <span data-i18n="btn_hero_apply">START 1-ON-1 COACHING</span> <i class="fas fa-arrow-right ml-2"></i>
                 </button>
                 <a href="#calculator" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card text-white font-heading font-bold text-base hover:bg-surfaceLight transition-all border border-white/10">
-                    Calculate Macros <i class="fas fa-calculator ml-2 text-amberGlow"></i>
+                    <span data-i18n="btn_hero_calc">Calculate Macros</span> <i class="fas fa-calculator ml-2 text-amberGlow"></i>
                 </a>
             </div>
 
@@ -160,19 +175,19 @@
             <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
                 <div class="glass-card p-6 rounded-2xl border border-white/5">
                     <span class="block font-heading font-extrabold text-3xl text-amberGlow">100%</span>
-                    <span class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Failure Training</span>
+                    <span class="text-xs text-gray-400 uppercase tracking-wider font-semibold" data-i18n="stat_failure">Failure Training</span>
                 </div>
                 <div class="glass-card p-6 rounded-2xl border border-white/5">
                     <span class="block font-heading font-extrabold text-3xl text-amberGlow">24/7</span>
-                    <span class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Direct Access</span>
+                    <span class="text-xs text-gray-400 uppercase tracking-wider font-semibold" data-i18n="stat_access">Direct Access</span>
                 </div>
                 <div class="glass-card p-6 rounded-2xl border border-white/5">
                     <span class="block font-heading font-extrabold text-3xl text-amberGlow">1-on-1</span>
-                    <span class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Custom Protocols</span>
+                    <span class="text-xs text-gray-400 uppercase tracking-wider font-semibold" data-i18n="stat_custom">Custom Protocols</span>
                 </div>
                 <div class="glass-card p-6 rounded-2xl border border-white/5">
                     <span class="block font-heading font-extrabold text-3xl text-amberGlow">Global</span>
-                    <span class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Flat Pricing</span>
+                    <span class="text-xs text-gray-400 uppercase tracking-wider font-semibold" data-i18n="stat_pricing">Flat Pricing</span>
                 </div>
             </div>
         </div>
@@ -183,9 +198,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="font-heading font-black text-3xl sm:text-5xl text-white tracking-tight">
-                    PHYSICS-BASED <span class="text-amberGlow">OFFERS</span>
+                    <span data-i18n="prog_sec_title_1">PHYSICS-BASED</span> <span class="text-amberGlow" data-i18n="prog_sec_title_2">OFFERS</span>
                 </h2>
-                <p class="mt-4 text-gray-400 text-base sm:text-lg">
+                <p class="mt-4 text-gray-400 text-base sm:text-lg" data-i18n="prog_sec_subtitle">
                     Select your protocol. Every package includes direct WhatsApp interaction, video exercise form audits, and custom progressive overload tracking.
                 </p>
             </div>
@@ -195,100 +210,67 @@
                 <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border border-white/10 hover:border-amberGlow/40 transition-all duration-300 relative group">
                     <div>
                         <div class="flex justify-between items-start mb-4">
-                            <span class="px-3 py-1 rounded-full bg-white/10 text-gray-300 text-xs font-bold uppercase tracking-wider">Most Flexible</span>
+                            <span class="px-3 py-1 rounded-full bg-white/10 text-gray-300 text-xs font-bold uppercase tracking-wider" data-i18n="badge_flexible">Most Flexible</span>
                             <i class="fas fa-calendar-alt text-amberGlow text-xl"></i>
                         </div>
-                        <h3 class="font-heading font-bold text-xl text-white">Monthly VIP Subscription</h3>
-                        <p class="text-xs text-gray-400 mt-1">Flexible Month-to-Month</p>
+                        <h3 class="font-heading font-bold text-xl text-white" data-i18n="card1_title">Monthly VIP Subscription</h3>
+                        <p class="text-xs text-gray-400 mt-1" data-i18n="card1_subtitle">Flexible Month-to-Month</p>
                         
                         <div class="my-6">
                             <div class="flex items-baseline gap-1">
                                 <span class="font-heading font-black text-4xl text-white">$75</span>
-                                <span class="text-gray-400 text-sm">USD / month</span>
+                                <span class="text-gray-400 text-sm" data-i18n="per_month">USD / month</span>
                             </div>
-                            <span class="block text-xs text-amberGlow font-semibold mt-1">₺3,750 TRY per month</span>
+                            <span class="block text-xs text-amberGlow font-semibold mt-1">₺3,750 TRY / <span data-i18n="per_month_short">month</span></span>
                         </div>
 
                         <ul class="space-y-3 mb-8 text-sm text-gray-300">
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-check text-amberGlow mt-1 text-xs"></i>
-                                <span>Custom weekly workout & nutrition plan updates</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-check text-amberGlow mt-1 text-xs"></i>
-                                <span>24/7 direct WhatsApp access with Coach Mounib</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-check text-amberGlow mt-1 text-xs"></i>
-                                <span>Video execution & exercise form checks</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-check text-amberGlow mt-1 text-xs"></i>
-                                <span>Weekly check-in protocol & accountability</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-check text-amberGlow mt-1 text-xs"></i>
-                                <span>Ongoing macro & cardio adjustments</span>
-                            </li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-amberGlow mt-1 text-xs"></i><span data-i18n="c1_f1">Custom weekly workout & nutrition plan updates</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-amberGlow mt-1 text-xs"></i><span data-i18n="c1_f2">24/7 direct WhatsApp access with Coach Mounib</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-amberGlow mt-1 text-xs"></i><span data-i18n="c1_f3">Video execution & exercise form checks</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-amberGlow mt-1 text-xs"></i><span data-i18n="c1_f4">Weekly check-in protocol & accountability</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-amberGlow mt-1 text-xs"></i><span data-i18n="c1_f5">Ongoing macro & cardio adjustments</span></li>
                         </ul>
                     </div>
-                    <button onclick="selectProgram('Monthly VIP Subscription')" class="w-full py-3 rounded-xl bg-surfaceLight text-white font-heading font-bold text-sm tracking-wide hover:bg-amberGlow hover:text-obsidian transition-colors">
+                    <button onclick="selectProgram('Monthly VIP Subscription')" class="w-full py-3 rounded-xl bg-surfaceLight text-white font-heading font-bold text-sm tracking-wide hover:bg-amberGlow hover:text-obsidian transition-colors" data-i18n="btn_select">
                         SELECT PROGRAM
                     </button>
                 </div>
 
                 <!-- CARD 2: Shred Protocol -->
                 <div class="glass-card-amber rounded-2xl p-6 flex flex-col justify-between relative shadow-amber-glow hover:shadow-amber-glow-lg transition-all duration-300 group">
-                    <div class="absolute -top-3 right-4 px-3 py-1 rounded-full bg-amberGlow text-obsidian text-xs font-black uppercase tracking-wider">
+                    <div class="absolute -top-3 right-4 px-3 py-1 rounded-full bg-amberGlow text-obsidian text-xs font-black uppercase tracking-wider" data-i18n="badge_12week">
                         12-Week Transformation
                     </div>
                     <div>
                         <div class="flex justify-between items-start mb-4">
-                            <span class="text-amberGlow text-xs font-bold uppercase tracking-wider">Aggressive Fat Loss</span>
+                            <span class="text-amberGlow text-xs font-bold uppercase tracking-wider" data-i18n="card2_tag">Aggressive Fat Loss</span>
                             <i class="fas fa-fire text-amberGlow text-xl"></i>
                         </div>
-                        <h3 class="font-heading font-bold text-xl text-white">The Shred Protocol</h3>
-                        <p class="text-xs text-gray-400 mt-1">12 Weeks Upfront</p>
+                        <h3 class="font-heading font-bold text-xl text-white" data-i18n="card2_title">The Shred Protocol</h3>
+                        <p class="text-xs text-gray-400 mt-1" data-i18n="upfront_12w">12 Weeks Upfront</p>
                         
                         <div class="my-6">
                             <div class="flex items-baseline gap-1">
                                 <span class="font-heading font-black text-4xl text-white">$200</span>
-                                <span class="text-gray-400 text-sm">USD Upfront</span>
+                                <span class="text-gray-400 text-sm" data-i18n="upfront_text">USD Upfront</span>
                             </div>
                             <div class="flex items-center gap-2 mt-1">
                                 <span class="text-xs text-amberGlow font-semibold">₺10,000 TRY</span>
-                                <span class="text-[10px] px-2 py-0.5 rounded bg-amberGlow/20 text-amberGlow font-bold">Save $25 / ₺1,250</span>
+                                <span class="text-[10px] px-2 py-0.5 rounded bg-amberGlow/20 text-amberGlow font-bold" data-i18n="save_tag">Save $25 / ₺1,250</span>
                             </div>
                         </div>
 
                         <ul class="space-y-3 mb-8 text-sm text-gray-300">
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-check text-amberGlow mt-1 text-xs"></i>
-                                <span>Comprehensive 12-Week fat loss roadmap</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-check text-amberGlow mt-1 text-xs"></i>
-                                <span>Dynamic deficit macro structuring & refeeds</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-check text-amberGlow mt-1 text-xs"></i>
-                                <span>Specialized High-Intensity (HIT) training</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-check text-amberGlow mt-1 text-xs"></i>
-                                <span>Weekly photo, weight & biometric check-ins</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-check text-amberGlow mt-1 text-xs"></i>
-                                <span>Supplementation & metabolic optimization</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-check text-amberGlow mt-1 text-xs"></i>
-                                <span>Direct WhatsApp coaching support</span>
-                            </li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-amberGlow mt-1 text-xs"></i><span data-i18n="c2_f1">Comprehensive 12-Week fat loss roadmap</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-amberGlow mt-1 text-xs"></i><span data-i18n="c2_f2">Dynamic deficit macro structuring & refeeds</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-amberGlow mt-1 text-xs"></i><span data-i18n="c2_f3">Specialized High-Intensity (HIT) training</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-amberGlow mt-1 text-xs"></i><span data-i18n="c2_f4">Weekly photo, weight & biometric check-ins</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-amberGlow mt-1 text-xs"></i><span data-i18n="c2_f5">Supplementation & metabolic optimization</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-amberGlow mt-1 text-xs"></i><span data-i18n="c1_f2">24/7 direct WhatsApp access with Coach Mounib</span></li>
                         </ul>
                     </div>
-                    <button onclick="selectProgram('The Shred Protocol (12-Week)')" class="w-full py-3 rounded-xl bg-amberGlow text-obsidian font-heading font-black text-sm tracking-wide hover:bg-amberHover transition-colors shadow-amber-glow">
+                    <button onclick="selectProgram('The Shred Protocol (12-Week)')" class="w-full py-3 rounded-xl bg-amberGlow text-obsidian font-heading font-black text-sm tracking-wide hover:bg-amberHover transition-colors shadow-amber-glow" data-i18n="btn_select">
                         SELECT PROGRAM
                     </button>
                 </div>
@@ -297,51 +279,33 @@
                 <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border border-white/10 hover:border-amberGlow/40 transition-all duration-300 relative group">
                     <div>
                         <div class="flex justify-between items-start mb-4">
-                            <span class="px-3 py-1 rounded-full bg-white/10 text-gray-300 text-xs font-bold uppercase tracking-wider">12-Week Mass Build</span>
+                            <span class="px-3 py-1 rounded-full bg-white/10 text-gray-300 text-xs font-bold uppercase tracking-wider" data-i18n="card3_tag">12-Week Mass Build</span>
                             <i class="fas fa-cubes text-amberGlow text-xl"></i>
                         </div>
-                        <h3 class="font-heading font-bold text-xl text-white">Lean Bulk Blueprint</h3>
-                        <p class="text-xs text-gray-400 mt-1">12 Weeks Upfront</p>
+                        <h3 class="font-heading font-bold text-xl text-white" data-i18n="card3_title">Lean Bulk Blueprint</h3>
+                        <p class="text-xs text-gray-400 mt-1" data-i18n="upfront_12w">12 Weeks Upfront</p>
                         
                         <div class="my-6">
                             <div class="flex items-baseline gap-1">
                                 <span class="font-heading font-black text-4xl text-white">$200</span>
-                                <span class="text-gray-400 text-sm">USD Upfront</span>
+                                <span class="text-gray-400 text-sm" data-i18n="upfront_text">USD Upfront</span>
                             </div>
                             <div class="flex items-center gap-2 mt-1">
                                 <span class="text-xs text-amberGlow font-semibold">₺10,000 TRY</span>
-                                <span class="text-[10px] px-2 py-0.5 rounded bg-white/10 text-gray-300 font-bold">Save $25 / ₺1,250</span>
+                                <span class="text-[10px] px-2 py-0.5 rounded bg-white/10 text-gray-300 font-bold" data-i18n="save_tag">Save $25 / ₺1,250</span>
                             </div>
                         </div>
 
                         <ul class="space-y-3 mb-8 text-sm text-gray-300">
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-check text-amberGlow mt-1 text-xs"></i>
-                                <span>Hypertrophy protocol targeting mechanical failure</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-check text-amberGlow mt-1 text-xs"></i>
-                                <span>High-calorie structuring for clean gains</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-check text-amberGlow mt-1 text-xs"></i>
-                                <span>Progressive overload strength tracking</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-check text-amberGlow mt-1 text-xs"></i>
-                                <span>Weekly execution reviews & form analysis</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-check text-amberGlow mt-1 text-xs"></i>
-                                <span>Lagging body part specialization techniques</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-check text-amberGlow mt-1 text-xs"></i>
-                                <span>Direct WhatsApp coaching support</span>
-                            </li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-amberGlow mt-1 text-xs"></i><span data-i18n="c3_f1">Hypertrophy protocol targeting mechanical failure</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-amberGlow mt-1 text-xs"></i><span data-i18n="c3_f2">High-calorie structuring for clean gains</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-amberGlow mt-1 text-xs"></i><span data-i18n="c3_f3">Progressive overload strength tracking</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-amberGlow mt-1 text-xs"></i><span data-i18n="c3_f4">Weekly execution reviews & form analysis</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-amberGlow mt-1 text-xs"></i><span data-i18n="c3_f5">Lagging body part specialization techniques</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-amberGlow mt-1 text-xs"></i><span data-i18n="c1_f2">24/7 direct WhatsApp access with Coach Mounib</span></li>
                         </ul>
                     </div>
-                    <button onclick="selectProgram('Lean Bulk Blueprint (12-Week)')" class="w-full py-3 rounded-xl bg-surfaceLight text-white font-heading font-bold text-sm tracking-wide hover:bg-amberGlow hover:text-obsidian transition-colors">
+                    <button onclick="selectProgram('Lean Bulk Blueprint (12-Week)')" class="w-full py-3 rounded-xl bg-surfaceLight text-white font-heading font-bold text-sm tracking-wide hover:bg-amberGlow hover:text-obsidian transition-colors" data-i18n="btn_select">
                         SELECT PROGRAM
                     </button>
                 </div>
@@ -350,51 +314,33 @@
                 <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border border-white/10 hover:border-amberGlow/40 transition-all duration-300 relative group">
                     <div>
                         <div class="flex justify-between items-start mb-4">
-                            <span class="px-3 py-1 rounded-full bg-white/10 text-gray-300 text-xs font-bold uppercase tracking-wider">12-Week Recomp</span>
+                            <span class="px-3 py-1 rounded-full bg-white/10 text-gray-300 text-xs font-bold uppercase tracking-wider" data-i18n="card4_tag">12-Week Recomp</span>
                             <i class="fas fa-sync text-amberGlow text-xl"></i>
                         </div>
-                        <h3 class="font-heading font-bold text-xl text-white">Recomp & Maintain</h3>
-                        <p class="text-xs text-gray-400 mt-1">12 Weeks Upfront</p>
+                        <h3 class="font-heading font-bold text-xl text-white" data-i18n="card4_title">Recomp & Maintain</h3>
+                        <p class="text-xs text-gray-400 mt-1" data-i18n="upfront_12w">12 Weeks Upfront</p>
                         
                         <div class="my-6">
                             <div class="flex items-baseline gap-1">
                                 <span class="font-heading font-black text-4xl text-white">$200</span>
-                                <span class="text-gray-400 text-sm">USD Upfront</span>
+                                <span class="text-gray-400 text-sm" data-i18n="upfront_text">USD Upfront</span>
                             </div>
                             <div class="flex items-center gap-2 mt-1">
                                 <span class="text-xs text-amberGlow font-semibold">₺10,000 TRY</span>
-                                <span class="text-[10px] px-2 py-0.5 rounded bg-white/10 text-gray-300 font-bold">Save $25 / ₺1,250</span>
+                                <span class="text-[10px] px-2 py-0.5 rounded bg-white/10 text-gray-300 font-bold" data-i18n="save_tag">Save $25 / ₺1,250</span>
                             </div>
                         </div>
 
                         <ul class="space-y-3 mb-8 text-sm text-gray-300">
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-check text-amberGlow mt-1 text-xs"></i>
-                                <span>Simultaneous fat loss & muscle growth protocol</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-check text-amberGlow mt-1 text-xs"></i>
-                                <span>Maintenance macro cycling & metabolic reset</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-check text-amberGlow mt-1 text-xs"></i>
-                                <span>Hybrid calisthenics & heavy resistance plan</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-check text-amberGlow mt-1 text-xs"></i>
-                                <span>Sustainable lifestyle habit integration</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-check text-amberGlow mt-1 text-xs"></i>
-                                <span>Weekly check-ins & progress adjustments</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-check text-amberGlow mt-1 text-xs"></i>
-                                <span>Direct WhatsApp coaching support</span>
-                            </li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-amberGlow mt-1 text-xs"></i><span data-i18n="c4_f1">Simultaneous fat loss & muscle growth protocol</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-amberGlow mt-1 text-xs"></i><span data-i18n="c4_f2">Maintenance macro cycling & metabolic reset</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-amberGlow mt-1 text-xs"></i><span data-i18n="c4_f3">Hybrid calisthenics & heavy resistance plan</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-amberGlow mt-1 text-xs"></i><span data-i18n="c4_f4">Sustainable lifestyle habit integration</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-amberGlow mt-1 text-xs"></i><span data-i18n="c4_f5">Weekly check-ins & progress adjustments</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-amberGlow mt-1 text-xs"></i><span data-i18n="c1_f2">24/7 direct WhatsApp access with Coach Mounib</span></li>
                         </ul>
                     </div>
-                    <button onclick="selectProgram('Recomp & Maintain (12-Week)')" class="w-full py-3 rounded-xl bg-surfaceLight text-white font-heading font-bold text-sm tracking-wide hover:bg-amberGlow hover:text-obsidian transition-colors">
+                    <button onclick="selectProgram('Recomp & Maintain (12-Week)')" class="w-full py-3 rounded-xl bg-surfaceLight text-white font-heading font-bold text-sm tracking-wide hover:bg-amberGlow hover:text-obsidian transition-colors" data-i18n="btn_select">
                         SELECT PROGRAM
                     </button>
                 </div>
@@ -406,11 +352,11 @@
     <section id="calculator" class="py-20 relative bg-surface/50 border-y border-white/5">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <span class="text-amberGlow text-xs font-bold uppercase tracking-widest">Interactive Tool</span>
-                <h2 class="font-heading font-black text-3xl sm:text-4xl text-white mt-2">
+                <span class="text-amberGlow text-xs font-bold uppercase tracking-widest" data-i18n="calc_badge">Interactive Tool</span>
+                <h2 class="font-heading font-black text-3xl sm:text-4xl text-white mt-2" data-i18n="calc_title">
                     CLIENT TDEE & MACRO ESTIMATOR
                 </h2>
-                <p class="text-gray-400 text-sm sm:text-base mt-2">
+                <p class="text-gray-400 text-sm sm:text-base mt-2" data-i18n="calc_subtitle">
                     Input your body stats below to calculate your baseline energy targets.
                 </p>
             </div>
@@ -419,13 +365,13 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- Gender -->
                     <div>
-                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Gender</label>
+                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2" data-i18n="lbl_gender">Gender</label>
                         <div class="grid grid-cols-2 gap-3">
                             <button type="button" onclick="setCalcGender('male')" id="calc-gender-male" class="py-3 rounded-xl border border-amberGlow bg-amberGlow/10 text-white font-bold text-sm flex items-center justify-center gap-2">
-                                <i class="fas fa-mars text-amberGlow"></i> Male
+                                <i class="fas fa-mars text-amberGlow"></i> <span data-i18n="opt_male">Male</span>
                             </button>
                             <button type="button" onclick="setCalcGender('female')" id="calc-gender-female" class="py-3 rounded-xl border border-white/10 bg-surfaceLight text-gray-400 font-bold text-sm flex items-center justify-center gap-2">
-                                <i class="fas fa-venus text-pink-400"></i> Female
+                                <i class="fas fa-venus text-pink-400"></i> <span data-i18n="opt_female">Female</span>
                             </button>
                         </div>
                     </div>
@@ -433,7 +379,7 @@
                     <!-- Age -->
                     <div>
                         <div class="flex justify-between items-center mb-2">
-                            <label class="text-xs font-bold text-gray-300 uppercase tracking-wider">Age</label>
+                            <label class="text-xs font-bold text-gray-300 uppercase tracking-wider" data-i18n="lbl_age">Age</label>
                             <span id="calc-age-val" class="text-amberGlow font-bold text-sm">25 yrs</span>
                         </div>
                         <input type="range" id="calc-age" min="16" max="70" value="25" oninput="updateCalculator()" class="w-full accent-amberGlow h-2 bg-surfaceLight rounded-lg cursor-pointer" />
@@ -442,7 +388,7 @@
                     <!-- Weight -->
                     <div>
                         <div class="flex justify-between items-center mb-2">
-                            <label class="text-xs font-bold text-gray-300 uppercase tracking-wider">Current Weight (kg)</label>
+                            <label class="text-xs font-bold text-gray-300 uppercase tracking-wider" data-i18n="lbl_weight">Current Weight (kg)</label>
                             <span id="calc-weight-val" class="text-amberGlow font-bold text-sm">75 kg</span>
                         </div>
                         <input type="range" id="calc-weight" min="45" max="140" value="75" oninput="updateCalculator()" class="w-full accent-amberGlow h-2 bg-surfaceLight rounded-lg cursor-pointer" />
@@ -451,7 +397,7 @@
                     <!-- Height -->
                     <div>
                         <div class="flex justify-between items-center mb-2">
-                            <label class="text-xs font-bold text-gray-300 uppercase tracking-wider">Current Height (cm)</label>
+                            <label class="text-xs font-bold text-gray-300 uppercase tracking-wider" data-i18n="lbl_height">Current Height (cm)</label>
                             <span id="calc-height-val" class="text-amberGlow font-bold text-sm">178 cm</span>
                         </div>
                         <input type="range" id="calc-height" min="140" max="215" value="178" oninput="updateCalculator()" class="w-full accent-amberGlow h-2 bg-surfaceLight rounded-lg cursor-pointer" />
@@ -459,22 +405,22 @@
 
                     <!-- Primary Goal -->
                     <div>
-                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Physique Goal</label>
+                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2" data-i18n="lbl_goal">Physique Goal</label>
                         <select id="calc-goal" onchange="updateCalculator()" class="w-full px-4 py-3 rounded-xl bg-surfaceLight border border-white/10 text-white font-medium focus:outline-none focus:border-amberGlow text-sm">
-                            <option value="shred">Shred (Aggressive Fat Loss)</option>
-                            <option value="bulk">Bulk (Hypertrophy & Mass Build)</option>
-                            <option value="recomp" selected>Recomp (Simultaneous Muscle & Fat Loss)</option>
+                            <option value="shred" data-i18n="goal_shred">Shred (Aggressive Fat Loss)</option>
+                            <option value="bulk" data-i18n="goal_bulk">Bulk (Hypertrophy & Mass Build)</option>
+                            <option value="recomp" selected data-i18n="goal_recomp">Recomp (Simultaneous Muscle & Fat Loss)</option>
                         </select>
                     </div>
 
                     <!-- Activity Level -->
                     <div>
-                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Daily Activity Level</label>
+                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2" data-i18n="lbl_act">Daily Activity Level</label>
                         <select id="calc-activity" onchange="updateCalculator()" class="w-full px-4 py-3 rounded-xl bg-surfaceLight border border-white/10 text-white font-medium focus:outline-none focus:border-amberGlow text-sm">
-                            <option value="1.2">Sedentary (Desk Job, minimal movement)</option>
-                            <option value="1.375">Lightly Active (1-3 gym workouts/week)</option>
-                            <option value="1.55" selected>Moderately Active (3-5 intense HIT sessions)</option>
-                            <option value="1.725">Very Active (6+ intense workouts/week)</option>
+                            <option value="1.2" data-i18n="act_sed">Sedentary (Desk Job, minimal movement)</option>
+                            <option value="1.375" data-i18n="act_light">Lightly Active (1-3 gym workouts/week)</option>
+                            <option value="1.55" selected data-i18n="act_mod">Moderately Active (3-5 intense HIT sessions)</option>
+                            <option value="1.725" data-i18n="act_very">Very Active (6+ intense workouts/week)</option>
                         </select>
                     </div>
                 </div>
@@ -483,30 +429,30 @@
                 <div class="mt-8 pt-8 border-t border-white/10">
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                         <div class="bg-surface p-4 rounded-xl border border-white/5">
-                            <span class="block text-[10px] text-gray-400 font-bold uppercase">Estimated TDEE</span>
+                            <span class="block text-[10px] text-gray-400 font-bold uppercase" data-i18n="out_tdee">Estimated TDEE</span>
                             <span id="res-tdee" class="font-heading font-black text-2xl text-white mt-1 block">2,450</span>
                             <span class="text-[10px] text-gray-500">kcal/day</span>
                         </div>
                         <div class="bg-amberGlow/10 p-4 rounded-xl border border-amberGlow/30 shadow-amber-glow">
-                            <span class="block text-[10px] text-amberGlow font-bold uppercase">Target Intake</span>
+                            <span class="block text-[10px] text-amberGlow font-bold uppercase" data-i18n="out_target">Target Intake</span>
                             <span id="res-target" class="font-heading font-black text-2xl text-amberGlow mt-1 block">2,200</span>
                             <span class="text-[10px] text-amberGlow/70">kcal/day</span>
                         </div>
                         <div class="bg-surface p-4 rounded-xl border border-white/5">
-                            <span class="block text-[10px] text-gray-400 font-bold uppercase">Daily Protein</span>
+                            <span class="block text-[10px] text-gray-400 font-bold uppercase" data-i18n="out_protein">Daily Protein</span>
                             <span id="res-protein" class="font-heading font-black text-2xl text-white mt-1 block">165g</span>
                             <span class="text-[10px] text-gray-500">~2.2g/kg</span>
                         </div>
                         <div class="bg-surface p-4 rounded-xl border border-white/5">
-                            <span class="block text-[10px] text-gray-400 font-bold uppercase">Carb / Fat Split</span>
+                            <span class="block text-[10px] text-gray-400 font-bold uppercase" data-i18n="out_split">Carb / Fat Split</span>
                             <span id="res-split" class="font-heading font-black text-lg text-white mt-1 block">220g / 65g</span>
-                            <span class="text-[10px] text-gray-500">Carbs / Fats</span>
+                            <span class="text-[10px] text-gray-500" data-i18n="out_c_f">Carbs / Fats</span>
                         </div>
                     </div>
 
                     <div class="mt-6">
                         <button onclick="sendMacroReportWhatsApp()" class="w-full py-4 rounded-xl bg-amberGlow text-obsidian font-heading font-black text-sm tracking-wide hover:bg-amberHover transition-colors flex items-center justify-center gap-2 shadow-amber-glow">
-                            <i class="fab fa-whatsapp text-lg"></i> SEND MY STATS VIA WHATSAPP
+                            <i class="fab fa-whatsapp text-lg"></i> <span data-i18n="btn_send_stats">SEND MY STATS VIA WHATSAPP</span>
                         </button>
                     </div>
                 </div>
@@ -518,11 +464,11 @@
     <section id="payment" class="py-20 bg-obsidian">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <span class="text-amberGlow text-xs font-bold uppercase tracking-widest">Global Checkout Rails</span>
-                <h2 class="font-heading font-black text-3xl sm:text-4xl text-white mt-2">
+                <span class="text-amberGlow text-xs font-bold uppercase tracking-widest" data-i18n="pay_badge">Global Checkout Rails</span>
+                <h2 class="font-heading font-black text-3xl sm:text-4xl text-white mt-2" data-i18n="pay_title">
                     SECURE PAYMENT METHODS
                 </h2>
-                <p class="text-gray-400 text-sm sm:text-base mt-2">
+                <p class="text-gray-400 text-sm sm:text-base mt-2" data-i18n="pay_subtitle">
                     Flat rates applied worldwide. Choose direct bank transfer or instant online credit card payment.
                 </p>
             </div>
@@ -538,34 +484,34 @@
                                 </div>
                                 <div>
                                     <h3 class="font-heading font-bold text-lg text-white">Ziraat Bankası</h3>
-                                    <span class="text-xs text-gray-400">Direct Bank Transfer (TRY / USD / Kolay Adres)</span>
+                                    <span class="text-xs text-gray-400" data-i18n="ziraat_sub">Direct Bank Transfer (TRY / USD / Kolay Adres)</span>
                                 </div>
                             </div>
                             <span class="px-2.5 py-1 rounded bg-white/5 text-[10px] font-bold text-gray-300">Local & IBAN</span>
                         </div>
 
-                        <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                        <p class="text-xs text-gray-400 leading-relaxed mb-6" data-i18n="ziraat_desc">
                             Direct bank transfer via Ziraat Bank. Supports TRY EFT/FAST and international wire transfers via IBAN.
                         </p>
 
                         <div class="space-y-3 bg-surface p-4 rounded-xl border border-white/5 text-xs">
                             <div class="flex justify-between items-center">
-                                <span class="text-gray-400">Account Holder:</span>
+                                <span class="text-gray-400" data-i18n="bank_holder">Account Holder:</span>
                                 <span class="text-white font-semibold">Mounib Daghfous</span>
                             </div>
                             <div class="flex justify-between items-center">
-                                <span class="text-gray-400">Bank Name:</span>
+                                <span class="text-gray-400" data-i18n="bank_name">Bank Name:</span>
                                 <span class="text-white font-semibold">Ziraat Bankası (Türkiye)</span>
                             </div>
                             <div class="flex justify-between items-center">
-                                <span class="text-gray-400">Supported Currencies:</span>
+                                <span class="text-gray-400" data-i18n="bank_curr">Supported Currencies:</span>
                                 <span class="text-amberGlow font-bold">TRY (₺) / USD ($)</span>
                             </div>
                         </div>
                     </div>
 
                     <button onclick="openBankDetails()" class="mt-6 w-full py-3 rounded-xl bg-surfaceLight text-white font-heading font-bold text-xs tracking-wide hover:bg-white/20 transition-colors flex items-center justify-center gap-2">
-                        <i class="fas fa-copy"></i> VIEW IBAN & BANK DETAILS
+                        <i class="fas fa-copy"></i> <span data-i18n="btn_iban">VIEW IBAN & BANK DETAILS</span>
                     </button>
                 </div>
 
@@ -579,34 +525,34 @@
                                 </div>
                                 <div>
                                     <h3 class="font-heading font-bold text-lg text-white">Shopier Secure Checkout</h3>
-                                    <span class="text-xs text-gray-400">Instant Card Payment (Visa / Mastercard)</span>
+                                    <span class="text-xs text-gray-400" data-i18n="shopier_sub">Instant Card Payment (Visa / Mastercard)</span>
                                 </div>
                             </div>
-                            <span class="px-2.5 py-1 rounded bg-blue-500/20 text-blue-400 text-[10px] font-bold">Instant</span>
+                            <span class="px-2.5 py-1 rounded bg-blue-500/20 text-blue-400 text-[10px] font-bold" data-i18n="instant_tag">Instant</span>
                         </div>
 
-                        <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                        <p class="text-xs text-gray-400 leading-relaxed mb-6" data-i18n="shopier_desc">
                             Instant online credit/debit card checkout powered by Shopier. Safe, 256-bit encrypted checkout for Turkish and international clients.
                         </p>
 
                         <div class="space-y-2 bg-surface p-4 rounded-xl border border-white/5 text-xs text-gray-300">
                             <div class="flex items-center gap-2">
                                 <i class="fas fa-shield-alt text-amberGlow"></i>
-                                <span>Supports 3D Secure Verification</span>
+                                <span data-i18n="sh_f1">Supports 3D Secure Verification</span>
                             </div>
                             <div class="flex items-center gap-2">
                                 <i class="fas fa-globe text-amberGlow"></i>
-                                <span>Accepts international debit/credit cards</span>
+                                <span data-i18n="sh_f2">Accepts international debit/credit cards</span>
                             </div>
                             <div class="flex items-center gap-2">
                                 <i class="fas fa-bolt text-amberGlow"></i>
-                                <span>Instant coaching slot confirmation</span>
+                                <span data-i18n="sh_f3">Instant coaching slot confirmation</span>
                             </div>
                         </div>
                     </div>
 
                     <a href="https://www.shopier.com" target="_blank" class="mt-6 w-full py-3 rounded-xl bg-amberGlow text-obsidian font-heading font-bold text-xs tracking-wide hover:bg-amberHover transition-colors flex items-center justify-center gap-2 shadow-amber-glow">
-                        PAY VIA SHOPIER <i class="fas fa-external-link-alt"></i>
+                        <span data-i18n="btn_shopier">PAY VIA SHOPIER</span> <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
@@ -617,8 +563,8 @@
     <section id="faq" class="py-20 bg-surface/30">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <span class="text-amberGlow text-xs font-bold uppercase tracking-widest">Clear Answers</span>
-                <h2 class="font-heading font-black text-3xl sm:text-4xl text-white mt-2">
+                <span class="text-amberGlow text-xs font-bold uppercase tracking-widest" data-i18n="faq_badge">Clear Answers</span>
+                <h2 class="font-heading font-black text-3xl sm:text-4xl text-white mt-2" data-i18n="faq_title">
                     FREQUENTLY ASKED QUESTIONS
                 </h2>
             </div>
@@ -626,30 +572,30 @@
             <div class="space-y-4">
                 <div class="glass-card rounded-xl p-5 border border-white/5">
                     <button onclick="toggleFaq(1)" class="w-full flex justify-between items-center text-left">
-                        <span class="font-heading font-bold text-base text-white">How does 1-on-1 WhatsApp coaching work?</span>
+                        <span class="font-heading font-bold text-base text-white" data-i18n="q1">How does 1-on-1 WhatsApp coaching work?</span>
                         <i id="faq-icon-1" class="fas fa-chevron-down text-amberGlow transition-transform"></i>
                     </button>
-                    <div id="faq-ans-1" class="hidden mt-4 text-sm text-gray-400 leading-relaxed border-t border-white/5 pt-3">
+                    <div id="faq-ans-1" class="hidden mt-4 text-sm text-gray-400 leading-relaxed border-t border-white/5 pt-3" data-i18n="a1">
                         Once enrolled, you gain direct access to Coach Mounib on WhatsApp. You'll receive your custom workout spreadsheet and dynamic meal structure. Every week, you submit your check-in report with photos, bodyweight trends, and lifting execution videos for review.
                     </div>
                 </div>
 
                 <div class="glass-card rounded-xl p-5 border border-white/5">
                     <button onclick="toggleFaq(2)" class="w-full flex justify-between items-center text-left">
-                        <span class="font-heading font-bold text-base text-white">What is Mechanical Failure Training (HIT)?</span>
+                        <span class="font-heading font-bold text-base text-white" data-i18n="q2">What is Mechanical Failure Training (HIT)?</span>
                         <i id="faq-icon-2" class="fas fa-chevron-down text-amberGlow transition-transform"></i>
                     </button>
-                    <div id="faq-ans-2" class="hidden mt-4 text-sm text-gray-400 leading-relaxed border-t border-white/5 pt-3">
+                    <div id="faq-ans-2" class="hidden mt-4 text-sm text-gray-400 leading-relaxed border-t border-white/5 pt-3" data-i18n="a2">
                         Instead of spending 2+ hours doing junk volume, High-Intensity Training focuses on lower set volume taken to true mechanical failure with strict control. This maximizes muscle fiber recruitment while keeping recovery demands optimal.
                     </div>
                 </div>
 
                 <div class="glass-card rounded-xl p-5 border border-white/5">
                     <button onclick="toggleFaq(3)" class="w-full flex justify-between items-center text-left">
-                        <span class="font-heading font-bold text-base text-white">Can I join if I live outside Turkey?</span>
+                        <span class="font-heading font-bold text-base text-white" data-i18n="q3">Can I join if I live outside Turkey?</span>
                         <i id="faq-icon-3" class="fas fa-chevron-down text-amberGlow transition-transform"></i>
                     </button>
-                    <div id="faq-ans-3" class="hidden mt-4 text-sm text-gray-400 leading-relaxed border-t border-white/5 pt-3">
+                    <div id="faq-ans-3" class="hidden mt-4 text-sm text-gray-400 leading-relaxed border-t border-white/5 pt-3" data-i18n="a3">
                         Yes! Pricing is flat worldwide ($75 USD/mo or $200 USD upfront for 12-week protocols). We accept international cards via Shopier as well as direct bank transfers.
                     </div>
                 </div>
@@ -681,63 +627,63 @@
                 <div class="w-12 h-12 rounded-xl bg-amberGlow/20 border border-amberGlow/50 flex items-center justify-center mx-auto mb-3">
                     <i class="fas fa-clipboard-list text-amberGlow text-xl"></i>
                 </div>
-                <h3 class="font-heading font-black text-2xl text-white">1-on-1 Coaching Application</h3>
-                <p class="text-xs text-gray-400 mt-1">Direct Route to Coach Mounib Daghfous</p>
+                <h3 class="font-heading font-black text-2xl text-white" data-i18n="modal_title">1-on-1 Coaching Application</h3>
+                <p class="text-xs text-gray-400 mt-1" data-i18n="modal_sub">Direct Route to Coach Mounib Daghfous</p>
             </div>
 
             <form id="coaching-form" onsubmit="submitCoachingApplication(event)" class="space-y-4">
                 <!-- Full Name -->
                 <div>
-                    <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Full Name *</label>
+                    <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1" data-i18n="modal_lbl_name">Full Name *</label>
                     <input type="text" id="app-name" required placeholder="e.g. John Doe" class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-amberGlow text-sm" />
                 </div>
 
                 <!-- Gender Radio & Age (Responsive Full Width on Mobile) -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Gender *</label>
+                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1" data-i18n="lbl_gender">Gender *</label>
                         <div class="grid grid-cols-2 gap-2">
                             <label class="cursor-pointer">
                                 <input type="radio" name="app-gender" value="Male" checked class="peer sr-only" />
                                 <div class="py-3 text-center rounded-xl border border-white/10 bg-surface text-gray-400 text-xs font-bold peer-checked:border-amberGlow peer-checked:bg-amberGlow/10 peer-checked:text-white transition-all flex items-center justify-center gap-1.5">
-                                    <i class="fas fa-mars text-amberGlow"></i> Male
+                                    <i class="fas fa-mars text-amberGlow"></i> <span data-i18n="opt_male">Male</span>
                                 </div>
                             </label>
                             <label class="cursor-pointer">
                                 <input type="radio" name="app-gender" value="Female" class="peer sr-only" />
                                 <div class="py-3 text-center rounded-xl border border-white/10 bg-surface text-gray-400 text-xs font-bold peer-checked:border-pink-500 peer-checked:bg-pink-500/10 peer-checked:text-white transition-all flex items-center justify-center gap-1.5">
-                                    <i class="fas fa-venus text-pink-400"></i> Female
+                                    <i class="fas fa-venus text-pink-400"></i> <span data-i18n="opt_female">Female</span>
                                 </div>
                             </label>
                         </div>
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Age *</label>
+                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1" data-i18n="lbl_age">Age *</label>
                         <input type="number" id="app-age" required placeholder="25" min="15" max="80" class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-amberGlow text-sm" />
                     </div>
                 </div>
 
                 <!-- Phone / WhatsApp Number -->
                 <div>
-                    <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Phone / WhatsApp Number *</label>
+                    <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1" data-i18n="modal_lbl_phone">Phone / WhatsApp Number *</label>
                     <input type="tel" id="app-phone" required placeholder="e.g. +1 555 123 4567" class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-amberGlow text-sm" />
                 </div>
 
                 <!-- Weight & Height -->
                 <div class="grid grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Current Weight (kg) *</label>
+                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1" data-i18n="lbl_weight">Current Weight (kg) *</label>
                         <input type="number" id="app-weight" required placeholder="75" class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-amberGlow text-sm" />
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Current Height (cm) *</label>
+                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1" data-i18n="lbl_height">Current Height (cm) *</label>
                         <input type="number" id="app-height" required placeholder="178" class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-amberGlow text-sm" />
                     </div>
                 </div>
 
                 <!-- Selected Program (Full width on mobile) -->
                 <div>
-                    <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Selected Program *</label>
+                    <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1" data-i18n="modal_lbl_prog">Selected Program *</label>
                     <select id="app-program" class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white focus:outline-none focus:border-amberGlow text-sm">
                         <option value="The Shred Protocol (12-Week)">The Shred Protocol (12-Week - $200 / ₺10,000)</option>
                         <option value="Lean Bulk Blueprint (12-Week)">Lean Bulk Blueprint (12-Week - $200 / ₺10,000)</option>
@@ -749,31 +695,31 @@
                 <!-- Primary Goal & Experience -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Primary Goal *</label>
+                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1" data-i18n="lbl_goal">Primary Goal *</label>
                         <select id="app-goal" class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white focus:outline-none focus:border-amberGlow text-sm">
-                            <option value="Aggressive Fat Loss">Aggressive Fat Loss</option>
-                            <option value="Lean Muscle Hypertrophy">Lean Muscle Hypertrophy</option>
-                            <option value="Body Recomposition">Body Recomposition</option>
+                            <option value="Aggressive Fat Loss" data-i18n="goal_shred">Aggressive Fat Loss</option>
+                            <option value="Lean Muscle Hypertrophy" data-i18n="goal_bulk">Lean Muscle Hypertrophy</option>
+                            <option value="Body Recomposition" data-i18n="goal_recomp">Body Recomposition</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Experience Level *</label>
+                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1" data-i18n="modal_lbl_exp">Experience Level *</label>
                         <select id="app-exp" class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white focus:outline-none focus:border-amberGlow text-sm">
-                            <option value="Beginner (< 1 Year)">Beginner (&lt; 1 Year)</option>
-                            <option value="Intermediate (1-3 Years)" selected>Intermediate (1-3 Years)</option>
-                            <option value="Advanced (3+ Years)">Advanced (3+ Years)</option>
+                            <option value="Beginner (< 1 Year)" data-i18n="exp_beg">Beginner (&lt; 1 Year)</option>
+                            <option value="Intermediate (1-3 Years)" selected data-i18n="exp_int">Intermediate (1-3 Years)</option>
+                            <option value="Advanced (3+ Years)" data-i18n="exp_adv">Advanced (3+ Years)</option>
                         </select>
                     </div>
                 </div>
 
                 <!-- Notes -->
                 <div>
-                    <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Training History & Notes</label>
+                    <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1" data-i18n="modal_lbl_notes">Training History & Notes</label>
                     <textarea id="app-notes" rows="2" placeholder="Tell Coach Mounib about your training experience, injuries, or dietary preferences..." class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-amberGlow text-sm"></textarea>
                 </div>
 
                 <button type="submit" id="app-submit-btn" class="w-full py-4 rounded-xl bg-amberGlow text-obsidian font-heading font-black text-sm tracking-wide hover:bg-amberHover transition-colors flex items-center justify-center gap-2 shadow-amber-glow mt-4">
-                    <i class="fab fa-whatsapp text-lg"></i> SUBMIT APPLICATION VIA WHATSAPP
+                    <i class="fab fa-whatsapp text-lg"></i> <span data-i18n="btn_submit_wa">SUBMIT APPLICATION VIA WHATSAPP</span>
                 </button>
             </form>
 
@@ -819,11 +765,398 @@
         </div>
     </div>
 
-    <!-- JavaScript Logic -->
+    <!-- JavaScript Translations & Logic -->
     <script>
         const COACH_PHONE = '905016632500';
         let currentGender = 'male';
+        let currentLanguage = 'en';
         let currentReportText = '';
+
+        const translations = {
+            en: {
+                tagline: "Physique Coaching",
+                nav_programs: "Programs",
+                nav_calculator: "Macro Calculator",
+                nav_payment: "Payment Options",
+                nav_faq: "FAQ",
+                btn_apply_now: "APPLY NOW 🔥",
+                hero_badge: "High-Intensity Training & Recomposition",
+                hero_title_1: "Transform Your Physique",
+                hero_title_2: "Without Junk Volume.",
+                hero_subtitle: "Elite 1-on-1 coaching by Coach Mounib Daghfous. Mechanical failure training, precise dynamic nutrition, and direct 24/7 WhatsApp accountability.",
+                btn_hero_apply: "START 1-ON-1 COACHING",
+                btn_hero_calc: "Calculate Macros",
+                stat_failure: "Failure Training",
+                stat_access: "Direct Access",
+                stat_custom: "Custom Protocols",
+                stat_pricing: "Flat Pricing",
+                prog_sec_title_1: "PHYSICS-BASED",
+                prog_sec_title_2: "OFFERS",
+                prog_sec_subtitle: "Select your protocol. Every package includes direct WhatsApp interaction, video exercise form audits, and custom progressive overload tracking.",
+                badge_flexible: "Most Flexible",
+                card1_title: "Monthly VIP Subscription",
+                card1_subtitle: "Flexible Month-to-Month",
+                per_month: "USD / month",
+                per_month_short: "month",
+                c1_f1: "Custom weekly workout & nutrition plan updates",
+                c1_f2: "24/7 direct WhatsApp access with Coach Mounib",
+                c1_f3: "Video execution & exercise form checks",
+                c1_f4: "Weekly check-in protocol & accountability",
+                c1_f5: "Ongoing macro & cardio adjustments",
+                btn_select: "SELECT PROGRAM",
+                badge_12week: "12-Week Transformation",
+                card2_tag: "Aggressive Fat Loss",
+                card2_title: "The Shred Protocol",
+                upfront_12w: "12 Weeks Upfront",
+                upfront_text: "USD Upfront",
+                save_tag: "Save $25 / ₺1,250",
+                c2_f1: "Comprehensive 12-Week fat loss roadmap",
+                c2_f2: "Dynamic deficit macro structuring & refeeds",
+                c2_f3: "Specialized High-Intensity (HIT) training",
+                c2_f4: "Weekly photo, weight & biometric check-ins",
+                c2_f5: "Supplementation & metabolic optimization",
+                card3_tag: "12-Week Mass Build",
+                card3_title: "Lean Bulk Blueprint",
+                c3_f1: "Hypertrophy protocol targeting mechanical failure",
+                c3_f2: "High-calorie structuring for clean gains",
+                c3_f3: "Progressive overload strength tracking",
+                c3_f4: "Weekly execution reviews & form analysis",
+                c3_f5: "Lagging body part specialization techniques",
+                card4_tag: "12-Week Recomp",
+                card4_title: "Recomp & Maintain",
+                c4_f1: "Simultaneous fat loss & muscle growth protocol",
+                c4_f2: "Maintenance macro cycling & metabolic reset",
+                c4_f3: "Hybrid calisthenics & heavy resistance plan",
+                c4_f4: "Sustainable lifestyle habit integration",
+                c4_f5: "Weekly check-ins & progress adjustments",
+                calc_badge: "Interactive Tool",
+                calc_title: "CLIENT TDEE & MACRO ESTIMATOR",
+                calc_subtitle: "Input your body stats below to calculate your baseline energy targets.",
+                lbl_gender: "Gender",
+                opt_male: "Male",
+                opt_female: "Female",
+                lbl_age: "Age",
+                lbl_weight: "Current Weight (kg)",
+                lbl_height: "Current Height (cm)",
+                lbl_goal: "Physique Goal",
+                goal_shred: "Shred (Aggressive Fat Loss)",
+                goal_bulk: "Bulk (Hypertrophy & Mass Build)",
+                goal_recomp: "Recomp (Simultaneous Muscle & Fat Loss)",
+                lbl_act: "Daily Activity Level",
+                act_sed: "Sedentary (Desk Job, minimal movement)",
+                act_light: "Lightly Active (1-3 gym workouts/week)",
+                act_mod: "Moderately Active (3-5 intense HIT sessions)",
+                act_very: "Very Active (6+ intense workouts/week)",
+                out_tdee: "Estimated TDEE",
+                out_target: "Target Intake",
+                out_protein: "Daily Protein",
+                out_split: "Carb / Fat Split",
+                out_c_f: "Carbs / Fats",
+                btn_send_stats: "SEND MY STATS VIA WHATSAPP",
+                pay_badge: "Global Checkout Rails",
+                pay_title: "SECURE PAYMENT METHODS",
+                pay_subtitle: "Flat rates applied worldwide. Choose direct bank transfer or instant online credit card payment.",
+                ziraat_sub: "Direct Bank Transfer (TRY / USD / Kolay Adres)",
+                ziraat_desc: "Direct bank transfer via Ziraat Bank. Supports TRY EFT/FAST and international wire transfers via IBAN.",
+                bank_holder: "Account Holder:",
+                bank_name: "Bank Name:",
+                bank_curr: "Supported Currencies:",
+                btn_iban: "VIEW IBAN & BANK DETAILS",
+                shopier_sub: "Instant Card Payment (Visa / Mastercard)",
+                instant_tag: "Instant",
+                shopier_desc: "Instant online credit/debit card checkout powered by Shopier. Safe, 256-bit encrypted checkout for Turkish and international clients.",
+                sh_f1: "Supports 3D Secure Verification",
+                sh_f2: "Accepts international debit/credit cards",
+                sh_f3: "Instant coaching slot confirmation",
+                btn_shopier: "PAY VIA SHOPIER",
+                faq_badge: "Clear Answers",
+                faq_title: "FREQUENTLY ASKED QUESTIONS",
+                q1: "How does 1-on-1 WhatsApp coaching work?",
+                a1: "Once enrolled, you gain direct access to Coach Mounib on WhatsApp. You'll receive your custom workout spreadsheet and dynamic meal structure. Every week, you submit your check-in report with photos, bodyweight trends, and lifting execution videos for review.",
+                q2: "What is Mechanical Failure Training (HIT)?",
+                a2: "Instead of spending 2+ hours doing junk volume, High-Intensity Training focuses on lower set volume taken to true mechanical failure with strict control. This maximizes muscle fiber recruitment while keeping recovery demands optimal.",
+                q3: "Can I join if I live outside Turkey?",
+                a3: "Yes! Pricing is flat worldwide ($75 USD/mo or $200 USD upfront for 12-week protocols). We accept international cards via Shopier as well as direct bank transfers.",
+                modal_title: "1-on-1 Coaching Application",
+                modal_sub: "Direct Route to Coach Mounib Daghfous",
+                modal_lbl_name: "Full Name *",
+                modal_lbl_phone: "Phone / WhatsApp Number *",
+                modal_lbl_prog: "Selected Program *",
+                modal_lbl_exp: "Experience Level *",
+                exp_beg: "Beginner (< 1 Year)",
+                exp_int: "Intermediate (1-3 Years)",
+                exp_adv: "Advanced (3+ Years)",
+                modal_lbl_notes: "Training History & Notes",
+                btn_submit_wa: "SUBMIT APPLICATION VIA WHATSAPP"
+            },
+            tr: {
+                tagline: "Fizik Koçluğu",
+                nav_programs: "Programlar",
+                nav_calculator: "Makro Hesaplayıcı",
+                nav_payment: "Ödeme Seçenekleri",
+                nav_faq: "SSS",
+                btn_apply_now: "BAŞVUR 🔥",
+                hero_badge: "Yüksek Yoğunluklu Antrenman ve Rekompozisyon",
+                hero_title_1: "Fiziğinizi Değiştirin",
+                hero_title_2: "Gereksiz Hacim Olmadan.",
+                hero_subtitle: "Koç Mounib Daghfous ile 1-e-1 özel koçluk. Mekanik başarısızlık antrenmanları, hassas beslenme ve 7/24 WhatsApp iletişimi.",
+                btn_hero_apply: "1-E-1 KOÇLUĞA BAŞLA",
+                btn_hero_calc: "Makroları Hesapla",
+                stat_failure: "Tükeniş Antrenmanı",
+                stat_access: "7/24 İletişim",
+                stat_custom: "Özel Protokol",
+                stat_pricing: "Sabit Fiyat",
+                prog_sec_title_1: "BİLİM ODAKLI",
+                prog_sec_title_2: "PROGRAMLAR",
+                prog_sec_subtitle: "Protokolünüzü seçin. Her paket doğrudan WhatsApp desteği, form kontrol videoları ve aşırı yüklenme takibi içerir.",
+                badge_flexible: "En Esnek",
+                card1_title: "Aylık VIP Abonelik",
+                card1_subtitle: "Esnek Aylık Ödeme",
+                per_month: "USD / ay",
+                per_month_short: "ay",
+                c1_f1: "Haftalık özel antrenman ve beslenme planı güncellemeleri",
+                c1_f2: "Koç Mounib ile 7/24 doğrudan WhatsApp erişimi",
+                c1_f3: "Form ve hareket analizi videoları",
+                c1_f4: "Haftalık kontrol ve takip protokolü",
+                c1_f5: "Sürekli makro ve kardiyo ayarlamaları",
+                btn_select: "PROGRAMI SEÇ",
+                badge_12week: "12 Haftalık Değişim",
+                card2_tag: "Hızlı Yağ Yakımı",
+                card2_title: "The Shred Protokolü",
+                upfront_12w: "12 Hafta Peşin",
+                upfront_text: "USD Peşin",
+                save_tag: "₺1,250 Tasarruf Et",
+                c2_f1: "Kapsamlı 12 haftalık yağ yakım haritası",
+                c2_f2: "Dinamik kalori açığı ve refeed planlaması",
+                c2_f3: "Özel Yüksek Yoğunluklu (HIT) antrenman",
+                c2_f4: "Haftalık fotoğraf, kilo ve ölçüm kontrolleri",
+                c2_f5: "Takviye ve metabolizma optimizasyonu",
+                card3_tag: "12 Haftalık Kas Yapımı",
+                card3_title: "Clean Bulk Planı",
+                c3_f1: "Mekanik başarısızlığı hedefleyen hipertrofi planı",
+                c3_f2: "Temiz kas kazanımı için yüksek kalori düzeni",
+                c3_f3: "Kademeli yük artışı (Progressive Overload) takibi",
+                c3_f4: "Haftalık hareket formu analizi",
+                c3_f5: "Zayıf bölge geliştirme teknikleri",
+                card4_tag: "12 Haftalık Recomp",
+                card4_title: "Recomp & Koruma",
+                c4_f1: "Eşzamanlı yağ yakımı ve kas yapımı",
+                c4_f2: "Kalori döngüsü ve metabolik reset",
+                c4_f3: "Hibrit ağırlık ve vücut ağırlığı antrenmanı",
+                c4_f4: "Sürdürülebilir yaşam tarzı entegrasyonu",
+                c4_f5: "Haftalık kontrol ve gelişim güncellemeleri",
+                calc_badge: "İnteraktif Araç",
+                calc_title: "TDEE VE MAKRO HESAPLAYICI",
+                calc_subtitle: "Günlük kalori ve makro ihtiyacınızı hesaplamak için bilgilerinizi girin.",
+                lbl_gender: "Cinsiyet",
+                opt_male: "Erkek",
+                opt_female: "Kadın",
+                lbl_age: "Yaş",
+                lbl_weight: "Mevcut Kilo (kg)",
+                lbl_height: "Mevcut Boy (cm)",
+                lbl_goal: "Fizik Hedefi",
+                goal_shred: "Shred (Hızlı Yağ Yakımı)",
+                goal_bulk: "Bulk (Kas Kütlesi Yapımı)",
+                goal_recomp: "Recomp (Yağ Yakarken Kas Yapma)",
+                lbl_act: "Günlük Hareket Seviyesi",
+                act_sed: "Hareketsiz (Masa başı iş)",
+                act_light: "Az Hareketli (Haftada 1-3 antrenman)",
+                act_mod: "Orta Hareketli (Haftada 3-5 yoğun antrenman)",
+                act_very: "Çok Hareketli (Haftada 6+ ağır antrenman)",
+                out_tdee: "Tahmini TDEE",
+                out_target: "Hedef Kalori",
+                out_protein: "Günlük Protein",
+                out_split: "Karb / Yağ Dağılımı",
+                out_c_f: "Karbonhidrat / Yağ",
+                btn_send_stats: "BİLGİLERİMİ WHATSAPP'TAN GÖNDER",
+                pay_badge: "Ödeme Yöntemleri",
+                pay_title: "GÜVENLİ ÖDEME SEÇENEKLERİ",
+                pay_subtitle: "Tüm dünyada geçerli sabit fiyatlar. Banka havalesi veya kredi kartı ile ödeyin.",
+                ziraat_sub: "Doğrudan Banka Havalesi (TL / USD / Kolay Adres)",
+                ziraat_desc: "Ziraat Bankası üzerinden EFT/FAST veya IBAN ile kolayca ödeme yapın.",
+                bank_holder: "Hesap Sahibi:",
+                bank_name: "Banka:",
+                bank_curr: "Geçerli Para Birimleri:",
+                btn_iban: "IBAN VE BANKA BİLGİLERİ",
+                shopier_sub: "Kredi Kartı ile Anında Ödeme",
+                instant_tag: "Anında",
+                shopier_desc: "Shopier altyapısı ile 256-bit güvenli ödeme. Tüm yerli ve yabancı kartlar geçerlidir.",
+                sh_f1: "3D Secure Güvenlik Desteği",
+                sh_f2: "Uluslararası Kredi/Banka Kartları",
+                sh_f3: "Anında kontenjan onayı",
+                btn_shopier: "SHOPIER İLE ÖDE",
+                faq_badge: "Net Cevaplar",
+                faq_title: "SIKÇA SORULAN SORULAR",
+                q1: "1-e-1 WhatsApp koçluğu nasıl çalışır?",
+                a1: "Kayıt olduktan sonra Koç Mounib ile doğrudan WhatsApp üzerinden iletişime geçersiniz. Size özel antrenman ve beslenme programınız hazırlanır. Her hafta form videolarınızı ve ölçümlerinizi kontrol ederiz.",
+                q2: "Mekanik Başarısızlık (HIT) Antrenmanı nedir?",
+                a2: "Saatlerce gymde boş hacim yapmak yerine, seti tam tükenişe götürerek kas liflerini maksimum seviyede uyarırız. Bu sayede daha az zamanda daha çok kas gelişimi sağlanır.",
+                q3: "Türkiye dışından katılabilir miyim?",
+                a3: "Evet! Fiyatlarımız tüm dünya için sabittir. Shopier üzerinden uluslararası kartlarla veya banka transferi ile ödeme yapabilirsiniz.",
+                modal_title: "1-e-1 Koçluk Başvurusu",
+                modal_sub: "Koç Mounib Daghfous ile Doğrudan İletişim",
+                modal_lbl_name: "Ad Soyad *",
+                modal_lbl_phone: "Telefon / WhatsApp *",
+                modal_lbl_prog: "Seçilen Program *",
+                modal_lbl_exp: "Deneyim Seviyesi *",
+                exp_beg: "Başlangıç (< 1 Yıl)",
+                exp_int: "Orta Seviye (1-3 Yıl)",
+                exp_adv: "İleri Seviye (3+ Yıl)",
+                modal_lbl_notes: "Antrenman Geçmişi ve Notlar",
+                btn_submit_wa: "BAŞVURUYU WHATSAPP'TAN GÖNDER"
+            },
+            ar: {
+                tagline: "تدريب شخصي لبناء الجسم",
+                nav_programs: "البرامج",
+                nav_calculator: "حاسبة الماكروز",
+                nav_payment: "طرق الدفع",
+                nav_faq: "الأسئلة الشائعة",
+                btn_apply_now: "قدّم الآن 🔥",
+                hero_badge: "تدريب أقصى شدة وتعديل القوام",
+                hero_title_1: "حوّل جسمك للإنهاك",
+                hero_title_2: "بدون تكرارات بلا فائدة.",
+                hero_subtitle: "تدريب شخصي مباشر 1-على-1 مع الكوتش منير دغفوس. تمارين الجهد الأقصى، تغذية دقيقة، ومتابعة يومية عبر الواتساب.",
+                btn_hero_apply: "ابدأ التدريب المباشر",
+                btn_hero_calc: "احسب السعرات والماكروز",
+                stat_failure: "وصول للفشل العضلي",
+                stat_access: "تواصل مباشر 24/7",
+                stat_custom: "برامج مخصصة",
+                stat_pricing: "أسعار ثابته عالمياً",
+                prog_sec_title_1: "برامج قائمة على",
+                prog_sec_title_2: "العلم والفيزياء",
+                prog_sec_subtitle: "اختر برنامجك. جميع الباقات تتضمن تواصل مباشر عبر الواتساب، تحليل فيديوهات التمرين، ومتابعة أوزانك.",
+                badge_flexible: "الأكثر مرونة",
+                card1_title: "اشتراك VIP الشهري",
+                card1_subtitle: "تجديد شهري مرن",
+                per_month: "دولار / شهرياً",
+                per_month_short: "شهرياً",
+                c1_f1: "تحديثات أسبوعية للتغذية والجدول التدريبي",
+                c1_f2: "تواصل مباشر 24/7 على الواتساب مع الكوتش منير",
+                c1_f3: "فحص وتصحيح التكنيك بفيديوهات التمرين",
+                c1_f4: "بروتوكول متابعة وتقييم أسبوعي",
+                c1_f5: "تعديل مستمر للماكروز والكارديو",
+                btn_select: "اختر البرنامج",
+                badge_12week: "تحول في 12 أسبوع",
+                card2_tag: "حرق دهون سريع",
+                card2_title: "بروتوكول التنشيف (Shred)",
+                upfront_12w: "12 أسبوع دفعة واحدة",
+                upfront_text: "دولار دفعة واحدة",
+                save_tag: "وفر 25$ / 1,250 ليرة",
+                c2_f1: "خطة متكاملة لـ 12 أسبوع لحرق الدهون",
+                c2_f2: "تعديل ديناميكي للعجز الحراري ووجبات اعادة التعبئة",
+                c2_f3: "تمارين الجهد العالي (HIT) المخصصة",
+                c2_f4: "متابعة أسبوعية بالصور والوزن والقياسات",
+                c2_f5: "تحسين المكملات والميتابوليزم",
+                card3_tag: "بناء عضلات 12 أسبوع",
+                card3_title: "مخطط الضخامة (Clean Bulk)",
+                c3_f1: "بروتوكول تضخيم يعتمد على الفشل العضلي",
+                c3_f2: "ترتيب سعرات عالية لبناء عضل صافي",
+                c3_f3: "متابعة زيادة الأحمال التدريجية",
+                c3_f4: "مراجعة أسبوعية لأداء التمرين والتكنيك",
+                c3_f5: "تقنيات استهداف العضلات الضعيفة",
+                card4_tag: "إعادة تشكيل الجسم 12 أسبوع",
+                card4_title: "المحافظة وإعادة التشكيل",
+                c4_f1: "حرق الدهون وبناء العضلات في نفس الوقت",
+                c4_f2: "تدوير السعرات وإعادة ضبط الأيض",
+                c4_f3: "خطة هجينة بين الكاليثينكس والأوزان الثقيلة",
+                c4_f4: "دمج عادات صحية مستدامة",
+                c4_f5: "تعديل الخطة أسبوعياً حسب التطور",
+                calc_badge: "أداة تفاعلية",
+                calc_title: "حاسبة السعرات والماكروز",
+                calc_subtitle: "أدخل بيانات جسمك لحساب الاحتياج اليومي من السعرات والبروتين.",
+                lbl_gender: "الجنس",
+                opt_male: "ذكر",
+                opt_female: "أنثى",
+                lbl_age: "العمر",
+                lbl_weight: "الوزن الحالي (كجم)",
+                lbl_height: "الطول الحالي (سم)",
+                lbl_goal: "هدف الجسم",
+                goal_shred: "تنشيف (حرق دهون سريع)",
+                goal_bulk: "تضخيم (بناء عضلات)",
+                goal_recomp: "إعادة تشكيل (بناء عضل وحرق دهون معاً)",
+                lbl_act: "مستوى النشاط اليومي",
+                act_sed: "خامل (عمل مكتبي، حركة قليلة)",
+                act_light: "نشاط خفيف (1-3 تمارين شهرياً)",
+                act_mod: "نشاط متوسط (3-5 تمارين شديدة أسبوعياً)",
+                act_very: "نشاط عالي جداً (6+ تمارين شاقة أسبوعياً)",
+                out_tdee: "السعرات الحرارية المقدرة",
+                out_target: "السعرات المستهدفة",
+                out_protein: "البروتين اليومي",
+                out_split: "توزيع الكارب والدهون",
+                out_c_f: "كارب / دهون",
+                btn_send_stats: "أرسل بياناتي عبر الواتساب",
+                pay_badge: "بوابات الدفع",
+                pay_title: "طرق الدفع الآمنة",
+                pay_subtitle: "أسعار موحدة لجميع الدول. دفع عبر تحويل بنكي أو بطاقة الائتمان.",
+                ziraat_sub: "تحويل بنكي مباشر (زراعات بنك)",
+                ziraat_desc: "تحويل مباشر عبر بنك الزراعات التركي. يدعم Lira و USD والتحويل الدولي.",
+                bank_holder: "صاحب الحساب:",
+                bank_name: "اسم البنك:",
+                bank_curr: "العملات المدعومة:",
+                btn_iban: "عرض الآيبان وتفاصيل البنك",
+                shopier_sub: "دفع فورى بالبطاقة (Shopier)",
+                instant_tag: "فوري",
+                shopier_desc: "دفع آمن بالبطاقة البنكية مشفر 256-bit. يكتفي بجميع البطاقات المحلية والدولية.",
+                sh_f1: "يدعم الحماية الثلاثية 3D Secure",
+                sh_f2: "يقبل بطاقات الفيزا والماستركارد العالمية",
+                sh_f3: "تأكيد فوري للاشتراك",
+                btn_shopier: "الدفع عبر SHOPIER",
+                faq_badge: "إجابات واضحة",
+                faq_title: "الأسئلة الشائعة",
+                q1: "كيف يعمل التدريب الشخصي عبر الواتساب؟",
+                a1: "بعد التسجيل، تتواصل مباشرة مع الكوتش منير على الواتساب. تستلم خطتك التدريبية والغذائية. كل أسبوع ترسل الصور والوزن وفيديوهات التمرين للمراجعة.",
+                q2: "ما هو تدريب الفشل العضلي (HIT)؟",
+                a2: "بدلاً من قضاء ساعات في الجيم بتكرارات بلا فائدة، نركز على الوصول للفشل العضلي الحقيقي بتكنيك صارم لتحفيز نمو العضلات بأعلى كفاءة.",
+                q3: "هل يمكنني الاشتراك من خارج تركيا؟",
+                a3: "نعم! الأسعار موحدة لجميع دول العالم. يمكنك الدفع بالبطاقة البنكية الدولية عبر Shopier أو التحويل البنكي.",
+                modal_title: "طلب التدريب الشخصي 1-على-1",
+                modal_sub: "تواصل مباشر مع الكوتش منير دغفوس",
+                modal_lbl_name: "الاسم الكامل *",
+                modal_lbl_phone: "رقم الواتساب *",
+                modal_lbl_prog: "البرنامج المختار *",
+                modal_lbl_exp: "مستوى الخبرة *",
+                exp_beg: "مبتدئ (< سنة)",
+                exp_int: "متوسط (1-3 سنوات)",
+                exp_adv: "متقدم (+3 سنوات)",
+                modal_lbl_notes: "ملاحظات وتاريخ التدريب",
+                btn_submit_wa: "إرسال الطلب عبر الواتساب"
+            }
+        };
+
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            document.documentElement.lang = lang;
+            
+            // Handle RTL direction for Arabic
+            if(lang === 'ar') {
+                document.documentElement.dir = 'rtl';
+            } else {
+                document.documentElement.dir = 'ltr';
+            }
+
+            // Update UI translation elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerText = translations[lang][key];
+                }
+            });
+
+            // Update language selector active states
+            ['en', 'tr', 'ar'].forEach(l => {
+                const desktopBtn = document.getElementById(`lang-btn-${l}`);
+                const mobBtn = document.getElementById(`lang-btn-mob-${l}`);
+                if (l === lang) {
+                    desktopBtn.className = "px-2.5 py-1 rounded-lg text-amberGlow bg-amberGlow/10 transition-colors";
+                    mobBtn.className = "px-2 py-0.5 rounded text-amberGlow bg-amberGlow/10";
+                } else {
+                    desktopBtn.className = "px-2.5 py-1 rounded-lg text-gray-400 hover:text-white transition-colors";
+                    mobBtn.className = "px-2 py-0.5 rounded text-gray-400";
+                }
+            });
+
+            updateCalculator();
+        }
 
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
@@ -852,7 +1185,7 @@
             const goal = document.getElementById('calc-goal').value;
             const activity = parseFloat(document.getElementById('calc-activity').value);
 
-            document.getElementById('calc-age-val').innerText = age + ' yrs';
+            document.getElementById('calc-age-val').innerText = age + (currentLanguage === 'tr' ? ' yaş' : currentLanguage === 'ar' ? ' سنة' : ' yrs');
             document.getElementById('calc-weight-val').innerText = weight + ' kg';
             document.getElementById('calc-height-val').innerText = height + ' cm';
 
@@ -886,19 +1219,50 @@
             const protein = document.getElementById('res-protein').innerText;
             const split = document.getElementById('res-split').innerText;
 
-            const msg = `📊 *MOUNIB COACHING - MACRO & TDEE REPORT*\n` +
-                        `--------------------------------------\n` +
-                        `⚧ *Gender:* ${currentGender.toUpperCase()}\n` +
-                        `🎂 *Age:* ${age} yrs\n` +
-                        `⚖️ *Weight:* ${weight} kg | 📏 *Height:* ${height} cm\n` +
-                        `🎯 *Goal:* ${goalText}\n` +
-                        `--------------------------------------\n` +
-                        `🔥 *TDEE Estimate:* ${tdee} kcal/day\n` +
-                        `🎯 *Daily Calorie Target:* ${target} kcal/day\n` +
-                        `🥩 *Protein Target:* ${protein}\n` +
-                        `🍚 *Carbs / Fats Split:* ${split}\n` +
-                        `--------------------------------------\n` +
-                        `Coach Mounib, I calculated my stats on your site and would like to get started!`;
+            let msg = '';
+            if(currentLanguage === 'tr') {
+                msg = `📊 *MOUNIB COACHING - MAKRO & TDEE RAPORU*\n` +
+                      `--------------------------------------\n` +
+                      `⚧ *Cinsiyet:* ${currentGender === 'male' ? 'Erkek' : 'Kadın'}\n` +
+                      `🎂 *Yaş:* ${age}\n` +
+                      `⚖️ *Kilo:* ${weight} kg | 📏 *Boy:* ${height} cm\n` +
+                      `🎯 *Hedef:* ${goalText}\n` +
+                      `--------------------------------------\n` +
+                      `🔥 *Tahmini TDEE:* ${tdee} kcal/gün\n` +
+                      `🎯 *Hedef Kalori:* ${target} kcal/gün\n` +
+                      `🥩 *Hedef Protein:* ${protein}\n` +
+                      `🍚 *Karb / Yağ Dağılımı:* ${split}\n` +
+                      `--------------------------------------\n` +
+                      `Koç Mounib, sitem üzerinden makrolarımı hesapladım ve koçluğa başlamak istiyorum!`;
+            } else if(currentLanguage === 'ar') {
+                msg = `📊 *MOUNIB COACHING - تقرير السعرات والماكروز*\n` +
+                      `--------------------------------------\n` +
+                      `⚧ *الجنس:* ${currentGender === 'male' ? 'ذكر' : 'أنثى'}\n` +
+                      `🎂 *العمر:* ${age}\n` +
+                      `⚖️ *الوزن:* ${weight} كجم | 📏 *الطول:* ${height} سم\n` +
+                      `🎯 *الهدف:* ${goalText}\n` +
+                      `--------------------------------------\n` +
+                      `🔥 *احتياج السعرات (TDEE):* ${tdee} سعرة/يوم\n` +
+                      `🎯 *السعرات المستهدفة:* ${target} سعرة/يوم\n` +
+                      `🥩 *البروتين اليومي:* ${protein}\n` +
+                      `🍚 *توزيع الكارب والدهون:* ${split}\n` +
+                      `--------------------------------------\n` +
+                      `كوتش منير، قمت بحساب بياناتي على الموقع وأود البدء في التدريب!`;
+            } else {
+                msg = `📊 *MOUNIB COACHING - MACRO & TDEE REPORT*\n` +
+                      `--------------------------------------\n` +
+                      `⚧ *Gender:* ${currentGender.toUpperCase()}\n` +
+                      `🎂 *Age:* ${age} yrs\n` +
+                      `⚖️ *Weight:* ${weight} kg | 📏 *Height:* ${height} cm\n` +
+                      `🎯 *Goal:* ${goalText}\n` +
+                      `--------------------------------------\n` +
+                      `🔥 *TDEE Estimate:* ${tdee} kcal/day\n` +
+                      `🎯 *Daily Calorie Target:* ${target} kcal/day\n` +
+                      `🥩 *Protein Target:* ${protein}\n` +
+                      `🍚 *Carbs / Fats Split:* ${split}\n` +
+                      `--------------------------------------\n` +
+                      `Coach Mounib, I calculated my stats on your site and would like to get started!`;
+            }
 
             openWhatsApp(msg);
         }
@@ -916,19 +1280,49 @@
             const exp = document.getElementById('app-exp').value;
             const notes = document.getElementById('app-notes').value || 'None';
 
-            currentReportText = `💪 *NEW COACHING APPLICATION - MOUNIB COACHING*\n` +
-                                `--------------------------------------\n` +
-                                `👤 *Name:* ${name}\n` +
-                                `⚧ *Gender:* ${gender}\n` +
-                                `🎂 *Age:* ${age}\n` +
-                                `📱 *WhatsApp:* ${phone}\n` +
-                                `📌 *Selected Program:* ${program}\n` +
-                                `🎯 *Primary Goal:* ${goal}\n` +
-                                `🏋️ *Experience:* ${exp}\n` +
-                                `⚖️ *Weight:* ${weight} kg | 📏 *Height:* ${height} cm\n` +
-                                `📝 *Notes:* ${notes}\n` +
-                                `--------------------------------------\n` +
-                                `Ready to start training with Coach Mounib!`;
+            if(currentLanguage === 'tr') {
+                currentReportText = `💪 *1-E-1 KOÇLUK BAŞVURUSU - MOUNIB COACHING*\n` +
+                                    `--------------------------------------\n` +
+                                    `👤 *Ad Soyad:* ${name}\n` +
+                                    `⚧ *Cinsiyet:* ${gender === 'Male' ? 'Erkek' : 'Kadın'}\n` +
+                                    `🎂 *Yaş:* ${age}\n` +
+                                    `📱 *WhatsApp:* ${phone}\n` +
+                                    `📌 *Seçilen Program:* ${program}\n` +
+                                    `🎯 *Ana Hedef:* ${goal}\n` +
+                                    `🏋️ *Deneyim:* ${exp}\n` +
+                                    `⚖️ *Kilo:* ${weight} kg | 📏 *Boy:* ${height} cm\n` +
+                                    `📝 *Notlar:* ${notes}\n` +
+                                    `--------------------------------------\n` +
+                                    `Koç Mounib ile antrenmanlara başlamaya hazırım!`;
+            } else if(currentLanguage === 'ar') {
+                currentReportText = `💪 *طلب تدريب شخصي 1-على-1 - MOUNIB COACHING*\n` +
+                                    `--------------------------------------\n` +
+                                    `👤 *الاسم:* ${name}\n` +
+                                    `⚧ *الجنس:* ${gender === 'Male' ? 'ذكر' : 'أنثى'}\n` +
+                                    `🎂 *العمر:* ${age}\n` +
+                                    `📱 *الواتساب:* ${phone}\n` +
+                                    `📌 *البرنامج المختار:* ${program}\n` +
+                                    `🎯 *الهدف الرئيسي:* ${goal}\n` +
+                                    `🏋️ *الخبرة:* ${exp}\n` +
+                                    `⚖️ *الوزن:* ${weight} كجم | 📏 *الطول:* ${height} سم\n` +
+                                    `📝 *ملاحظات:* ${notes}\n` +
+                                    `--------------------------------------\n` +
+                                    `جاهز للبدء في التدريب مع الكوتش منير!`;
+            } else {
+                currentReportText = `💪 *NEW COACHING APPLICATION - MOUNIB COACHING*\n` +
+                                    `--------------------------------------\n` +
+                                    `👤 *Name:* ${name}\n` +
+                                    `⚧ *Gender:* ${gender}\n` +
+                                    `🎂 *Age:* ${age}\n` +
+                                    `📱 *WhatsApp:* ${phone}\n` +
+                                    `📌 *Selected Program:* ${program}\n` +
+                                    `🎯 *Primary Goal:* ${goal}\n` +
+                                    `🏋️ *Experience:* ${exp}\n` +
+                                    `⚖️ *Weight:* ${weight} kg | 📏 *Height:* ${height} cm\n` +
+                                    `📝 *Notes:* ${notes}\n` +
+                                    `--------------------------------------\n` +
+                                    `Ready to start training with Coach Mounib!`;
+            }
 
             openWhatsApp(currentReportText);
         }
@@ -937,9 +1331,8 @@
             const encoded = encodeURIComponent(message);
             const waUrl = `https://wa.me/${COACH_PHONE}?text=${encoded}`;
             
-            showToast("Opening WhatsApp...", "info");
+            showToast(currentLanguage === 'tr' ? "WhatsApp açılıyor..." : currentLanguage === 'ar' ? "جاري فتح الواتساب..." : "Opening WhatsApp...", "info");
             
-            // Try window.open first, fallback to location if blocked
             const win = window.open(waUrl, '_blank');
             if (!win || win.closed || typeof win.closed === 'undefined') {
                 document.getElementById('app-fallback-box').classList.remove('hidden');
@@ -1002,10 +1395,11 @@
             }, 3000);
         }
 
-        // Initialize Calculator on load
+        // Initialize on load
         window.onload = function() {
             updateCalculator();
         };
     </script>
 </body>
 </html>
+```
