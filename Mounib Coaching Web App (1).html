@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mounib Coaching | High-Intensity 1-on-1 Physique Coaching</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Inter & Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#0d0d0d',
+            'obsidian-card': 'rgba(22, 22, 26, 0.75)',
+            'obsidian-border': 'rgba(255, 255, 255, 0.08)',
+            amber: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Montserrat', 'sans-serif'],
+          },
+          boxShadow: {
+            'amber-glow': '0 0 25px rgba(245, 158, 11, 0.25)',
+            'amber-glow-lg': '0 0 45px rgba(245, 158, 11, 0.35)',
+            'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #f3f4f6;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .glass-nav {
+      background: rgba(13, 13, 13, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glass-card {
+      background: rgba(22, 22, 26, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glass-card-hover {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .glass-card-hover:hover {
+      border-color: rgba(245, 158, 11, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px -10px rgba(245, 158, 11, 0.2);
+    }
+
+    .amber-gradient-text {
+      background: linear-gradient(135deg, #ffffff 30%, #f59e0b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .amber-btn-gradient {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    }
+
+    .amber-btn-gradient:hover {
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0d0d0d;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #262626;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #f59e0b;
+    }
+  </style>
+</head>
+<body class="antialiased overflow-x-hidden text-gray-200">
+
+  <!-- BACKGROUND AMBIENT GLOWS -->
+  <div class="fixed top-0 left-1/4 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+  <div class="fixed bottom-1/3 right-1/4 w-[600px] h-[600px] bg-amber-600/5 rounded-full blur-[150px] pointer-events-none -z-10"></div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-500 group-hover:bg-amber-500 group-hover:text-black transition-all duration-300 shadow-amber-glow">
+            <i class="fa-solid fa-dumbbell text-lg"></i>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-display font-black text-xl tracking-wider text-white uppercase">MOUNIB <span class="text-amber-500">COACHING</span></span>
+            <span class="text-[10px] text-gray-400 tracking-widest font-mono uppercase">Istanbul &bull; Worldwide 1-on-1</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-gray-300">
+          <a href="#programs" class="hover:text-amber-500 transition-colors">Programs & Pricing</a>
+          <a href="#calculator" class="hover:text-amber-500 transition-colors">Macro Calculator</a>
+          <a href="#payments" class="hover:text-amber-500 transition-colors">Payment Methods</a>
+          <a href="#faq" class="hover:text-amber-500 transition-colors">FAQ</a>
+        </nav>
+
+        <!-- Right Side Actions -->
+        <div class="hidden md:flex items-center gap-4">
+          <a href="https://wa.me/905016632500" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl border border-white/10 text-gray-300 hover:text-amber-500 hover:border-amber-500/40 transition-all">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+          </a>
+          <button type="button" data-modal-target="app-modal" class="btn-open-app amber-btn-gradient text-black font-bold px-5 py-2.5 rounded-xl shadow-amber-glow hover:shadow-amber-glow-lg transition-all duration-300 text-sm tracking-wide">
+            APPLY NOW
+          </button>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-btn" type="button" class="text-gray-300 hover:text-white p-2 focus:outline-none">
+            <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-obsidian/95 backdrop-blur-xl">
+      <div class="px-4 pt-4 pb-6 space-y-4">
+        <a href="#programs" class="mobile-nav-link block text-gray-300 hover:text-amber-500 font-medium py-2">Programs & Pricing</a>
+        <a href="#calculator" class="mobile-nav-link block text-gray-300 hover:text-amber-500 font-medium py-2">Macro Calculator</a>
+        <a href="#payments" class="mobile-nav-link block text-gray-300 hover:text-amber-500 font-medium py-2">Payment Methods</a>
+        <a href="#faq" class="mobile-nav-link block text-gray-300 hover:text-amber-500 font-medium py-2">FAQ</a>
+        <div class="pt-4 border-t border-white/10 flex flex-col gap-3">
+          <button type="button" data-modal-target="app-modal" class="btn-open-app w-full amber-btn-gradient text-black font-bold py-3 rounded-xl shadow-amber-glow text-center">
+            APPLY NOW
+          </button>
+          <a href="https://wa.me/905016632500" target="_blank" class="w-full text-center py-3 border border-emerald-500/40 rounded-xl text-emerald-400 font-medium flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-lg"></i> Direct WhatsApp Chat
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+          
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-400 text-xs font-semibold uppercase tracking-widest">
+            <span class="w-2 h-2 rounded-full bg-amber-500 animate-ping"></span>
+            1-on-1 Elite Physique Coaching
+          </div>
+
+          <!-- Main Headline -->
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-black tracking-tight leading-none text-white">
+            TRANSFORM YOUR PHYSIQUE <br />
+            <span class="amber-gradient-text">WITHOUT WASTING YEARS</span> ON JUNK VOLUME
+          </h1>
+
+          <!-- Subheadline -->
+          <p class="text-gray-400 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            Stop doing 20 redundant sets. Experience precision High-Intensity Training (HIT) pushed to true mechanical failure, continuous progressive overload tracking, and flexible, zero-fluff nutrition designed specifically for your bio-feedback.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            <button type="button" data-modal-target="app-modal" class="btn-open-app w-full sm:w-auto amber-btn-gradient text-black font-extrabold px-8 py-4 rounded-xl shadow-amber-glow hover:shadow-amber-glow-lg transition-all duration-300 text-base flex items-center justify-center gap-3">
+              <span>START 1-ON-1 COACHING</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <a href="#calculator" class="w-full sm:w-auto border border-white/15 hover:border-amber-500/50 bg-white/5 hover:bg-white/10 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 text-base text-center">
+              Calculate Macros
+            </a>
+          </div>
+
+          <!-- Key Highlights Badges -->
+          <div class="pt-6 grid grid-cols-3 gap-4 border-t border-white/10 max-w-lg mx-auto lg:mx-0">
+            <div>
+              <div class="text-amber-500 font-black text-xl sm:text-2xl font-display">100%</div>
+              <div class="text-xs text-gray-400 uppercase tracking-wider font-medium">Customized Plans</div>
+            </div>
+            <div>
+              <div class="text-amber-500 font-black text-xl sm:text-2xl font-display">HIT</div>
+              <div class="text-xs text-gray-400 uppercase tracking-wider font-medium">Failure Training</div>
+            </div>
+            <div>
+              <div class="text-amber-500 font-black text-xl sm:text-2xl font-display">24/7</div>
+              <div class="text-xs text-gray-400 uppercase tracking-wider font-medium">WhatsApp Access</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Hero Card Graphic / Coach Profile Card -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-md">
+            
+            <!-- Glow background -->
+            <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-amber-500 to-amber-700 opacity-30 blur-xl"></div>
+            
+            <!-- Main Obsidian Glass Card -->
+            <div class="relative glass-card p-6 sm:p-8 rounded-3xl space-y-6 border border-white/10">
+              
+              <div class="flex items-center justify-between pb-4 border-b border-white/10">
+                <div class="flex items-center gap-4">
+                  <div class="w-14 h-14 rounded-2xl bg-amber-500/20 border border-amber-500/50 flex items-center justify-center text-amber-500 font-black font-display text-xl">
+                    MD
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-white text-lg">Coach Mounib</h3>
+                    <p class="text-xs text-amber-500 font-medium">Head Physique Architect</p>
+                  </div>
+                </div>
+                <div class="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  Accepting Clients
+                </div>
+              </div>
+
+              <!-- Philosophy Bullets -->
+              <div class="space-y-4 text-sm">
+                <div class="flex items-start gap-3">
+                  <div class="p-1 rounded bg-amber-500/10 text-amber-500 mt-0.5">
+                    <i class="fa-solid fa-bolt text-xs"></i>
+                  </div>
+                  <p class="text-gray-300"><strong class="text-white">Mechanical Failure Priority:</strong> Maximum stimulus with minimum recovery stress.</p>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <div class="p-1 rounded bg-amber-500/10 text-amber-500 mt-0.5">
+                    <i class="fa-solid fa-chart-line text-xs"></i>
+                  </div>
+                  <p class="text-gray-300"><strong class="text-white">Progressive Logbook:</strong> Precise logbook tracking for measurable strength growth.</p>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <div class="p-1 rounded bg-amber-500/10 text-amber-500 mt-0.5">
+                    <i class="fa-solid fa-utensils text-xs"></i>
+                  </div>
+                  <p class="text-gray-300"><strong class="text-white">Zero-Fluff Flexible Dieting:</strong> Flexible macros tailored around your real lifestyle.</p>
+                </div>
+              </div>
+
+              <!-- Location Banner -->
+              <div class="p-4 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-between text-xs text-gray-400">
+                <span class="flex items-center gap-2">
+                  <i class="fa-solid fa-location-dot text-amber-500"></i>
+                  Based in Istanbul, Turkey
+                </span>
+                <span class="text-white font-mono font-medium">Worldwide Equal Rates</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAM & PRICING OFFERS SECTION -->
+  <section id="programs" class="py-20 relative border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+        <h2 class="text-xs font-mono font-bold tracking-widest text-amber-500 uppercase">OFFERING STRUCTURE</h2>
+        <p class="text-3xl sm:text-4xl font-display font-black text-white">SELECT YOUR PHYSIQUE PROTOCOL</p>
+        <p class="text-gray-400 text-base">
+          Flat, transparent global pricing ($1 USD = 50 TRY rate included). Direct 1-on-1 access with Coach Mounib.
+        </p>
+      </div>
+
+      <!-- 4 Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- CARD 1: Monthly VIP -->
+        <div class="glass-card rounded-3xl p-6 flex flex-col justify-between glass-card-hover relative border border-white/10">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30">
+                Most Flexible
+              </span>
+              <i class="fa-solid fa-calendar-days text-gray-500 text-xl"></i>
+            </div>
+            
+            <h3 class="text-xl font-bold text-white mb-2 font-display">Monthly VIP Subscription</h3>
+            <p class="text-xs text-gray-400 mb-6">Flexible month-to-month dynamic coaching.</p>
+
+            <!-- Pricing Box -->
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/5 mb-6 space-y-1">
+              <div class="flex items-baseline gap-1">
+                <span class="text-3xl font-black font-display text-white">$75</span>
+                <span class="text-xs text-gray-400 font-mono">USD / month</span>
+              </div>
+              <div class="text-sm font-semibold text-amber-500 font-mono">3,750 TRY / month</div>
+              <div class="text-[10px] text-gray-500">Recurring monthly billing &bull; Cancel anytime</div>
+            </div>
+
+            <!-- Features List -->
+            <ul class="space-y-3 text-xs text-gray-300 mb-8">
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-amber-500 mt-0.5"></i>
+                <span>Custom weekly workout & nutrition updates</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-amber-500 mt-0.5"></i>
+                <span>24/7 direct WhatsApp access with Coach Mounib</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-amber-500 mt-0.5"></i>
+                <span>Video execution & exercise form checks</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-amber-500 mt-0.5"></i>
+                <span>Weekly check-in protocol & accountability</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-amber-500 mt-0.5"></i>
+                <span>Ongoing macro & cardio adjustments</span>
+              </li>
+            </ul>
+          </div>
+
+          <button type="button" data-program="Monthly VIP Subscription" class="btn-select-program w-full py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider border border-amber-500/40 text-amber-400 hover:bg-amber-500 hover:text-black transition-all duration-300 shadow-sm">
+            Select Monthly VIP
+          </button>
+        </div>
+
+        <!-- CARD 2: The Shred Protocol -->
+        <div class="glass-card rounded-3xl p-6 flex flex-col justify-between glass-card-hover relative border-2 border-amber-500/50 shadow-amber-glow">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-0.5 rounded-full bg-amber-500 text-black text-[10px] font-black uppercase tracking-widest">
+            POPULAR SHRED
+          </div>
+
+          <div>
+            <div class="flex justify-between items-start mb-4 mt-2">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-400 border border-amber-500/40">
+                12-Week Transformation
+              </span>
+              <i class="fa-solid fa-fire text-amber-500 text-xl"></i>
+            </div>
+            
+            <h3 class="text-xl font-bold text-white mb-2 font-display">The Shred Protocol</h3>
+            <p class="text-xs text-gray-400 mb-6">12-Week Aggressive Fat Loss & Muscle Retention.</p>
+
+            <!-- Pricing Box -->
+            <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 mb-6 space-y-1">
+              <div class="flex items-baseline gap-1">
+                <span class="text-3xl font-black font-display text-white">$200</span>
+                <span class="text-xs text-gray-400 font-mono">USD upfront</span>
+              </div>
+              <div class="text-sm font-semibold text-amber-400 font-mono">10,000 TRY Upfront</div>
+              <div class="text-[10px] text-emerald-400 font-semibold">Save $25 / 1,250 TRY vs Monthly</div>
+            </div>
+
+            <!-- Features List -->
+            <ul class="space-y-3 text-xs text-gray-300 mb-8">
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-amber-500 mt-0.5"></i>
+                <span>Comprehensive 12-Week fat loss roadmap</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-amber-500 mt-0.5"></i>
+                <span>Dynamic deficit macro structuring & refeeds</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-amber-500 mt-0.5"></i>
+                <span>Specialized High-Intensity Training (HIT)</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-amber-500 mt-0.5"></i>
+                <span>Weekly photo, weight & biometric check-ins</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-amber-500 mt-0.5"></i>
+                <span>Supplementation guide & metabolic optimization</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-amber-500 mt-0.5"></i>
+                <span>Direct 24/7 WhatsApp coaching support</span>
+              </li>
+            </ul>
+          </div>
+
+          <button type="button" data-program="The Shred Protocol" class="btn-select-program w-full py-3.5 px-4 rounded-xl font-extrabold text-xs uppercase tracking-wider amber-btn-gradient text-black shadow-amber-glow hover:shadow-amber-glow-lg transition-all duration-300">
+            Select Shred Protocol
+          </button>
+        </div>
+
+        <!-- CARD 3: Lean Bulk Blueprint -->
+        <div class="glass-card rounded-3xl p-6 flex flex-col justify-between glass-card-hover relative border border-white/10">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30">
+                12-Week Mass Build
+              </span>
+              <i class="fa-solid fa-dumbbell text-gray-500 text-xl"></i>
+            </div>
+            
+            <h3 class="text-xl font-bold text-white mb-2 font-display">Lean Bulk Blueprint</h3>
+            <p class="text-xs text-gray-400 mb-6">12-Week Controlled Hypertrophy & Hyper-Growth.</p>
+
+            <!-- Pricing Box -->
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/5 mb-6 space-y-1">
+              <div class="flex items-baseline gap-1">
+                <span class="text-3xl font-black font-display text-white">$200</span>
+                <span class="text-xs text-gray-400 font-mono">USD upfront</span>
+              </div>
+              <div class="text-sm font-semibold text-amber-500 font-mono">10,000 TRY Upfront</div>
+              <div class="text-[10px] text-emerald-400 font-semibold">Save $25 / 1,250 TRY vs Monthly</div>
+            </div>
+
+            <!-- Features List -->
+            <ul class="space-y-3 text-xs text-gray-300 mb-8">
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-amber-500 mt-0.5"></i>
+                <span>12-Week mechanical failure hypertrophy plan</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-amber-500 mt-0.5"></i>
+                <span>High-calorie meal structuring for lean gains</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-amber-500 mt-0.5"></i>
+                <span>Progressive overload logbook system</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-amber-500 mt-0.5"></i>
+                <span>Weekly execution reviews & form analysis</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-amber-500 mt-0.5"></i>
+                <span>Lagging body part specialization protocols</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-amber-500 mt-0.5"></i>
+                <span>Direct WhatsApp coaching support</span>
+              </li>
+            </ul>
+          </div>
+
+          <button type="button" data-program="Lean Bulk Blueprint" class="btn-select-program w-full py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider border border-amber-500/40 text-amber-400 hover:bg-amber-500 hover:text-black transition-all duration-300 shadow-sm">
+            Select Lean Bulk
+          </button>
+        </div>
+
+        <!-- CARD 4: Recomp & Maintain -->
+        <div class="glass-card rounded-3xl p-6 flex flex-col justify-between glass-card-hover relative border border-white/10">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30">
+                12-Week Recomp
+              </span>
+              <i class="fa-solid fa-arrows-rotate text-gray-500 text-xl"></i>
+            </div>
+            
+            <h3 class="text-xl font-bold text-white mb-2 font-display">Recomp & Maintain</h3>
+            <p class="text-xs text-gray-400 mb-6">Simultaneous Muscle Gain & Fat Loss.</p>
+
+            <!-- Pricing Box -->
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/5 mb-6 space-y-1">
+              <div class="flex items-baseline gap-1">
+                <span class="text-3xl font-black font-display text-white">$200</span>
+                <span class="text-xs text-gray-400 font-mono">USD upfront</span>
+              </div>
+              <div class="text-sm font-semibold text-amber-500 font-mono">10,000 TRY Upfront</div>
+              <div class="text-[10px] text-emerald-400 font-semibold">Save $25 / 1,250 TRY vs Monthly</div>
+            </div>
+
+            <!-- Features List -->
+            <ul class="space-y-3 text-xs text-gray-300 mb-8">
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-amber-500 mt-0.5"></i>
+                <span>Simultaneous fat loss & muscle building protocol</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-amber-500 mt-0.5"></i>
+                <span>Maintenance macro cycling & metabolic reset</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-amber-500 mt-0.5"></i>
+                <span>Hybrid resistance & calisthenics training</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-amber-500 mt-0.5"></i>
+                <span>Sustainable lifestyle habit integration</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-amber-500 mt-0.5"></i>
+                <span>Weekly check-ins & progress adjustments</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-amber-500 mt-0.5"></i>
+                <span>Direct WhatsApp coaching support</span>
+              </li>
+            </ul>
+          </div>
+
+          <button type="button" data-program="Recomp & Maintain" class="btn-select-program w-full py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider border border-amber-500/40 text-amber-400 hover:bg-amber-500 hover:text-black transition-all duration-300 shadow-sm">
+            Select Recomp Plan
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE MACRO & TDEE ESTIMATOR -->
+  <section id="calculator" class="py-20 bg-black/40 border-t border-white/5 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+        <h2 class="text-xs font-mono font-bold tracking-widest text-amber-500 uppercase">INTERACTIVE CALCULATOR</h2>
+        <p class="text-3xl sm:text-4xl font-display font-black text-white">CLIENT TDEE & MACRO ESTIMATOR</p>
+        <p class="text-gray-400 text-base">Calculate your customized daily caloric targets and sending your specs straight to Coach Mounib.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <!-- Input Form -->
+        <div class="lg:col-span-7 glass-card p-6 sm:p-8 rounded-3xl space-y-6">
+          
+          <div class="grid grid-cols-2 gap-4">
+            <!-- Gender -->
+            <div>
+              <label class="block text-xs font-bold text-gray-300 uppercase mb-2">Gender</label>
+              <select id="calc-gender" class="calc-trigger w-full bg-obsidian border border-white/10 rounded-xl px-4 py-3 text-white focus:border-amber-500 focus:outline-none text-sm">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+
+            <!-- Goal -->
+            <div>
+              <label class="block text-xs font-bold text-gray-300 uppercase mb-2">Primary Goal</label>
+              <select id="calc-goal" class="calc-trigger w-full bg-obsidian border border-white/10 rounded-xl px-4 py-3 text-white focus:border-amber-500 focus:outline-none text-sm">
+                <option value="shred">Fat Loss (Shred)</option>
+                <option value="recomp">Body Recomposition</option>
+                <option value="bulk">Muscle Gain (Bulk)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <!-- Weight -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label class="text-xs font-bold text-gray-300 uppercase">Weight (kg)</label>
+                <span id="weight-val" class="text-xs font-mono text-amber-500 font-bold">75 kg</span>
+              </div>
+              <input type="range" id="calc-weight" min="40" max="150" value="75" class="calc-trigger w-full accent-amber-500">
+            </div>
+
+            <!-- Height -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label class="text-xs font-bold text-gray-300 uppercase">Height (cm)</label>
+                <span id="height-val" class="text-xs font-mono text-amber-500 font-bold">178 cm</span>
+              </div>
+              <input type="range" id="calc-height" min="140" max="210" value="178" class="calc-trigger w-full accent-amber-500">
+            </div>
+
+            <!-- Age -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label class="text-xs font-bold text-gray-300 uppercase">Age (years)</label>
+                <span id="age-val" class="text-xs font-mono text-amber-500 font-bold">26 yrs</span>
+              </div>
+              <input type="range" id="calc-age" min="16" max="70" value="26" class="calc-trigger w-full accent-amber-500">
+            </div>
+          </div>
+
+          <!-- Activity Level -->
+          <div>
+            <label class="block text-xs font-bold text-gray-300 uppercase mb-2">Daily Activity Level</label>
+            <select id="calc-activity" class="calc-trigger w-full bg-obsidian border border-white/10 rounded-xl px-4 py-3 text-white focus:border-amber-500 focus:outline-none text-sm">
+              <option value="1.2">Sedentary (Desk Job, little exercise)</option>
+              <option value="1.375">Light Activity (Exercise 1-3 days/wk)</option>
+              <option value="1.55" selected>Moderate Activity (HIT Training 3-4 days/wk)</option>
+              <option value="1.725">Heavy Activity (Hard exercise 5-6 days/wk)</option>
+              <option value="1.9">Extreme Activity (Daily hard physical work/train)</option>
+            </select>
+          </div>
+
+        </div>
+
+        <!-- Output Cards -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="glass-card p-6 rounded-3xl border border-amber-500/30 relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl"></div>
+
+            <h3 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">ESTIMATED DAILY METRICS</h3>
+            
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div class="p-4 rounded-2xl bg-white/5 border border-white/5">
+                <span class="text-[10px] text-gray-400 uppercase tracking-wider block">Estimated TDEE</span>
+                <span id="res-tdee" class="text-2xl font-black font-display text-white">2,450</span>
+                <span class="text-xs text-gray-400">kcal/day</span>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20">
+                <span class="text-[10px] text-amber-400 uppercase tracking-wider block">Target Calories</span>
+                <span id="res-target" class="text-2xl font-black font-display text-amber-400">2,080</span>
+                <span class="text-xs text-amber-400">kcal/day</span>
+              </div>
+            </div>
+
+            <!-- Macros Breakdown -->
+            <div class="space-y-3 pt-2">
+              <div class="flex justify-between items-center text-sm">
+                <span class="flex items-center gap-2 text-gray-300">
+                  <span class="w-3 h-3 rounded-full bg-amber-500"></span> Protein Target
+                </span>
+                <span id="res-protein" class="font-bold text-white font-mono">165g</span>
+              </div>
+
+              <div class="flex justify-between items-center text-sm">
+                <span class="flex items-center gap-2 text-gray-300">
+                  <span class="w-3 h-3 rounded-full bg-blue-500"></span> Carbohydrate Target
+                </span>
+                <span id="res-carbs" class="font-bold text-white font-mono">200g</span>
+              </div>
+
+              <div class="flex justify-between items-center text-sm">
+                <span class="flex items-center gap-2 text-gray-300">
+                  <span class="w-3 h-3 rounded-full bg-emerald-500"></span> Fats Target
+                </span>
+                <span id="res-fats" class="font-bold text-white font-mono">65g</span>
+              </div>
+            </div>
+
+            <div class="pt-6">
+              <button type="button" id="btn-send-stats" class="w-full py-3.5 px-4 rounded-xl font-bold text-xs uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 text-black flex items-center justify-center gap-2 shadow-lg transition-all">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>SEND MY STATS VIA WHATSAPP</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PAYMENT & TRUST SECTION -->
+  <section id="payments" class="py-20 relative border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+        <h2 class="text-xs font-mono font-bold tracking-widest text-amber-500 uppercase">SECURE PAYMENT OPTIONS</h2>
+        <p class="text-3xl sm:text-4xl font-display font-black text-white">WORLDWIDE & LOCAL PAYMENT RAILS</p>
+        <p class="text-gray-400 text-base">We accept direct bank transfers via Ziraat Bank (TRY/USD/Kolay Adres) or instant credit/debit card checkout via Shopier.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        
+        <!-- ZIRAAT BANK CARD -->
+        <div class="glass-card p-8 rounded-3xl space-y-6 relative border border-white/10 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-red-600/20 border border-red-500/40 flex items-center justify-center text-red-500 font-bold">
+                <i class="fa-solid fa-building-columns text-xl"></i>
+              </div>
+              <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-white/5 border border-white/10 text-gray-300">
+                TRY / USD Direct Transfer
+              </span>
+            </div>
+
+            <h3 class="text-xl font-bold text-white font-display mb-2">Ziraat Bank Transfer</h3>
+            <p class="text-xs text-gray-400 mb-6">Direct bank transfer for clients in Turkey or worldwide IBAN transfer.</p>
+
+            <div class="p-4 rounded-2xl bg-black/50 border border-white/5 space-y-3 font-mono text-xs">
+              <div class="flex justify-between items-center">
+                <span class="text-gray-500">Account Holder:</span>
+                <span class="text-white font-bold">Mounib Daghfous</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-gray-500">Bank:</span>
+                <span class="text-gray-300">Ziraat Bankası Turkey</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-gray-500">Kolay Adres:</span>
+                <span class="text-amber-500 font-bold">+905016632500</span>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" id="btn-open-ziraat" class="w-full py-3 rounded-xl border border-white/20 text-white font-bold text-xs uppercase hover:bg-white/10 transition-all flex items-center justify-center gap-2">
+            <i class="fa-solid fa-copy"></i> View Full Bank IBAN & Details
+          </button>
+        </div>
+
+        <!-- SHOPIER CARD -->
+        <div class="glass-card p-8 rounded-3xl space-y-6 relative border border-white/10 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-blue-400 font-bold">
+                <i class="fa-solid fa-credit-card text-xl"></i>
+              </div>
+              <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-blue-500/10 text-blue-400 border border-blue-500/30">
+                Instant Card Checkout
+              </span>
+            </div>
+
+            <h3 class="text-xl font-bold text-white font-display mb-2">Shopier Credit / Debit Card</h3>
+            <p class="text-xs text-gray-400 mb-6">Instant 256-bit SSL encrypted credit or debit card checkout locally & internationally.</p>
+
+            <div class="p-4 rounded-2xl bg-black/50 border border-white/5 space-y-2 text-xs text-gray-300">
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-shield-halved text-emerald-400"></i>
+                <span>Instant confirmation & zero conversion fees</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-globe text-amber-500"></i>
+                <span>Supports Visa, Mastercard, American Express</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://www.shopier.com" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-amber-glow">
+            <span>PROCEED TO SHOPIER CHECKOUT</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section id="faq" class="py-20 bg-black/40 border-t border-white/5 relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center space-y-4 mb-16">
+        <h2 class="text-xs font-mono font-bold tracking-widest text-amber-500 uppercase">GOT QUESTIONS?</h2>
+        <p class="text-3xl sm:text-4xl font-display font-black text-white">FREQUENTLY ASKED QUESTIONS</p>
+      </div>
+
+      <div class="space-y-4">
+        
+        <!-- FAQ 1 -->
+        <div class="glass-card rounded-2xl border border-white/10 overflow-hidden">
+          <button type="button" data-faq-id="1" class="faq-toggle w-full p-6 text-left font-bold text-white flex justify-between items-center hover:text-amber-500 transition-colors">
+            <span>Why High-Intensity Training (HIT) to failure instead of high volume?</span>
+            <i class="fa-solid fa-chevron-down text-amber-500 transition-transform duration-300" id="faq-icon-1"></i>
+          </button>
+          <div id="faq-content-1" class="hidden px-6 pb-6 text-sm text-gray-400 leading-relaxed border-t border-white/5 pt-4">
+            High-Intensity Training (HIT) optimizes muscle protein synthesis by pushing target muscle fibers to mechanical failure within 1-2 work sets. This minimizes structural joint fatigue and CNS burnout, ensuring maximum muscular hypertrophy without wasting 2 hours in the gym on junk volume.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="glass-card rounded-2xl border border-white/10 overflow-hidden">
+          <button type="button" data-faq-id="2" class="faq-toggle w-full p-6 text-left font-bold text-white flex justify-between items-center hover:text-amber-500 transition-colors">
+            <span>How do weekly check-ins work with Coach Mounib?</span>
+            <i class="fa-solid fa-chevron-down text-amber-500 transition-transform duration-300" id="faq-icon-2"></i>
+          </button>
+          <div id="faq-content-2" class="hidden px-6 pb-6 text-sm text-gray-400 leading-relaxed border-t border-white/5 pt-4">
+            Every week you submit your logbook entries, workout execution video clips, weight trend data, and progress photos via your designated WhatsApp line. Coach Mounib personally reviews every detail and delivers updated macro targets or training progression adjustments within 24 hours.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="glass-card rounded-2xl border border-white/10 overflow-hidden">
+          <button type="button" data-faq-id="3" class="faq-toggle w-full p-6 text-left font-bold text-white flex justify-between items-center hover:text-amber-500 transition-colors">
+            <span>Can I join if I am outside Turkey?</span>
+            <i class="fa-solid fa-chevron-down text-amber-500 transition-transform duration-300" id="faq-icon-3"></i>
+          </button>
+          <div id="faq-content-3" class="hidden px-6 pb-6 text-sm text-gray-400 leading-relaxed border-t border-white/5 pt-4">
+            Yes! Although Coach Mounib is based in Istanbul, Turkey, clients are coached worldwide across Europe, North America, Middle East, and Asia. Pricing remains identical globally with easy USD or local currency options.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="glass-card rounded-2xl border border-white/10 overflow-hidden">
+          <button type="button" data-faq-id="4" class="faq-toggle w-full p-6 text-left font-bold text-white flex justify-between items-center hover:text-amber-500 transition-colors">
+            <span>Do I need to follow a rigid meal plan?</span>
+            <i class="fa-solid fa-chevron-down text-amber-500 transition-transform duration-300" id="faq-icon-4"></i>
+          </button>
+          <div id="faq-content-4" class="hidden px-6 pb-6 text-sm text-gray-400 leading-relaxed border-t border-white/5 pt-4">
+            No. You receive structured macro and calorie targets alongside customizable meal templates and food substitution options. As long as key micronutrient and protein targets are met, you enjoy complete flexibility in your food choices.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-12 border-t border-white/10 bg-obsidian">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-500 font-bold">
+            <i class="fa-solid fa-dumbbell text-sm"></i>
+          </div>
+          <span class="font-display font-black text-lg text-white">MOUNIB <span class="text-amber-500">COACHING</span></span>
+        </div>
+
+        <p class="text-xs text-gray-500">
+          &copy; <span id="year"></span> Mounib Coaching (Coach Mounib Daghfous). All Rights Reserved. Istanbul, Turkey.
+        </p>
+
+        <div class="flex items-center gap-4 text-gray-400">
+          <a href="https://wa.me/905016632500" target="_blank" class="hover:text-emerald-400 text-lg transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#programs" class="hover:text-amber-500 text-xs font-medium transition-colors">Programs</a>
+          <a href="#payments" class="hover:text-amber-500 text-xs font-medium transition-colors">Payments</a>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- ZIRAAT BANK MODAL -->
+  <div id="ziraat-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="glass-card max-w-lg w-full rounded-3xl p-6 sm:p-8 border border-white/20 space-y-6 relative">
+      <button type="button" class="btn-close-modal text-gray-400 hover:text-white absolute top-6 right-6" data-modal-id="ziraat-modal">
+        <i class="fa-solid fa-xmark text-xl"></i>
+      </button>
+
+      <div class="flex items-center gap-3 border-b border-white/10 pb-4">
+        <div class="w-10 h-10 rounded-xl bg-red-600/20 border border-red-500/40 flex items-center justify-center text-red-500">
+          <i class="fa-solid fa-building-columns"></i>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-white font-display">Ziraat Bank Details</h3>
+          <p class="text-xs text-gray-400">Direct Bank Wire / FAST Transfer</p>
+        </div>
+      </div>
+
+      <div class="space-y-4 text-xs font-mono">
+        <div class="p-3 bg-black/60 rounded-xl border border-white/5 space-y-1">
+          <span class="text-gray-500 text-[10px] uppercase block">Account Holder Name</span>
+          <div class="flex justify-between items-center text-white font-bold text-sm">
+            <span>Mounib Daghfous</span>
+            <button type="button" class="btn-copy text-amber-500 hover:text-white text-xs" data-copy="Mounib Daghfous">Copy</button>
+          </div>
+        </div>
+
+        <div class="p-3 bg-black/60 rounded-xl border border-white/5 space-y-1">
+          <span class="text-gray-500 text-[10px] uppercase block">Kolay Adres (Phone)</span>
+          <div class="flex justify-between items-center text-amber-400 font-bold text-sm">
+            <span>+905016632500</span>
+            <button type="button" class="btn-copy text-amber-500 hover:text-white text-xs" data-copy="+905016632500">Copy</button>
+          </div>
+        </div>
+
+        <div class="p-3 bg-black/60 rounded-xl border border-white/5 space-y-1">
+          <span class="text-gray-500 text-[10px] uppercase block">Bank Name</span>
+          <div class="text-gray-300">Ziraat Bankası A.Ş. (Turkey)</div>
+        </div>
+      </div>
+
+      <p class="text-[11px] text-gray-400 italic">
+        * After completing your bank transfer, please send the payment receipt screenshot directly to Coach Mounib on WhatsApp (+905016632500).
+      </p>
+
+      <button type="button" class="btn-close-modal w-full py-3 bg-white/10 hover:bg-white/20 text-white rounded-xl font-bold text-xs uppercase" data-modal-id="ziraat-modal">
+        Close Window
+      </button>
+    </div>
+  </div>
+
+  <!-- APPLICATION FORM MODAL -->
+  <div id="app-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4 overflow-y-auto">
+    <div class="glass-card max-w-lg w-full rounded-3xl p-6 sm:p-8 border border-amber-500/30 space-y-6 relative my-8">
+      <button type="button" class="btn-close-modal text-gray-400 hover:text-white absolute top-6 right-6" data-modal-id="app-modal">
+        <i class="fa-solid fa-xmark text-xl"></i>
+      </button>
+
+      <div class="flex items-center gap-3 border-b border-white/10 pb-4">
+        <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-500">
+          <i class="fa-solid fa-clipboard-list"></i>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-white font-display">1-on-1 Coaching Application</h3>
+          <p class="text-xs text-amber-500">Direct Route to Coach Mounib Daghfous</p>
+        </div>
+      </div>
+
+      <form id="coaching-form" onsubmit="submitCoachingApplication(event)" class="space-y-4">
+        
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Full Name *</label>
+            <input type="text" id="app-name" required placeholder="e.g. John Doe" class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-2.5 text-white focus:border-amber-500 focus:outline-none text-sm">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Age *</label>
+            <input type="number" id="app-age" required placeholder="25" min="15" max="80" class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-2.5 text-white focus:border-amber-500 focus:outline-none text-sm">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Phone / WhatsApp Number *</label>
+          <input type="tel" id="app-phone" required placeholder="e.g. +1 555 123 4567" class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-2.5 text-white focus:border-amber-500 focus:outline-none text-sm">
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Current Weight (kg) *</label>
+            <input type="number" id="app-weight" required placeholder="75" class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-2.5 text-white focus:border-amber-500 focus:outline-none text-sm">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Current Height (cm) *</label>
+            <input type="number" id="app-height" required placeholder="178" class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-2.5 text-white focus:border-amber-500 focus:outline-none text-sm">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Selected Program *</label>
+            <select id="app-program" class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-2.5 text-white focus:border-amber-500 focus:outline-none text-sm">
+              <option value="The Shred Protocol">The Shred Protocol ($200 / 10k TRY)</option>
+              <option value="Monthly VIP Subscription">Monthly VIP Subscription ($75 / 3.75k TRY)</option>
+              <option value="Lean Bulk Blueprint">Lean Bulk Blueprint ($200 / 10k TRY)</option>
+              <option value="Recomp & Maintain">Recomp & Maintain ($200 / 10k TRY)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Primary Goal *</label>
+            <select id="app-goal" class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-2.5 text-white focus:border-amber-500 focus:outline-none text-sm">
+              <option value="Aggressive Fat Loss">Aggressive Fat Loss (Shred)</option>
+              <option value="Lean Mass Hypertrophy">Lean Mass Hypertrophy (Bulk)</option>
+              <option value="Body Recomposition">Body Recomposition (Recomp)</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Experience Level *</label>
+          <select id="app-experience" class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-2.5 text-white focus:border-amber-500 focus:outline-none text-sm">
+            <option value="Beginner (< 1 Year)">Beginner (< 1 Year)</option>
+            <option value="Intermediate (1-3 Years)" selected>Intermediate (1-3 Years)</option>
+            <option value="Advanced (3+ Years HIT/Fail Training)">Advanced (3+ Years HIT/Fail Training)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Training History & Notes</label>
+          <textarea id="app-notes" rows="3" placeholder="Tell Coach Mounib about your training experience, injuries, or dietary preferences..." class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-2.5 text-white focus:border-amber-500 focus:outline-none text-sm"></textarea>
+        </div>
+
+        <!-- FALLBACK BANNER IF AUTO-REDIRECT IS BLOCKED -->
+        <div id="app-fallback-box" class="hidden p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 space-y-3">
+          <p class="text-xs text-amber-300 font-semibold">
+            <i class="fa-solid fa-circle-info text-amber-400 mr-1"></i> Pop-up blocked or WhatsApp didn't open automatically?
+          </p>
+          <div class="flex flex-col sm:flex-row gap-2">
+            <a id="btn-manual-wa-link" href="#" target="_blank" class="w-full sm:w-1/2 py-2 px-3 bg-emerald-500 hover:bg-emerald-400 text-black text-center font-bold text-xs rounded-lg flex items-center justify-center gap-1.5">
+              <i class="fa-brands fa-whatsapp"></i> Open WhatsApp Now
+            </a>
+            <button type="button" id="btn-copy-report" class="w-full sm:w-1/2 py-2 px-3 bg-white/10 hover:bg-white/20 text-white font-bold text-xs rounded-lg border border-white/10 flex items-center justify-center gap-1.5">
+              <i class="fa-solid fa-copy"></i> Copy Full Report
+            </button>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <button type="submit" id="btn-app-submit" class="w-full py-3.5 rounded-xl amber-btn-gradient text-black font-extrabold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-amber-glow transition-all">
+            <i class="fa-brands fa-whatsapp text-base"></i>
+            <span>Submit Application via WhatsApp</span>
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- NOTIFICATION TOAST -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-amber-500 text-black px-4 py-3 rounded-xl font-bold text-xs shadow-lg hidden transition-all duration-300">
+    Text copied to clipboard!
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // Universal Robust WhatsApp Dispatcher
+    function openWhatsAppMessage(reportMsg, fallbackBoxId, manualBtnId, copyBtnId) {
+      const waNumber = "905016632500";
+      const encodedMsg = encodeURIComponent(reportMsg);
+      const waUrl = `https://wa.me/${waNumber}?text=${encodedMsg}`;
+
+      // Set manual click links in case pop-ups are blocked
+      if (manualBtnId) {
+        const manualBtn = document.getElementById(manualBtnId);
+        if (manualBtn) manualBtn.href = waUrl;
+      }
+      if (copyBtnId) {
+        const copyBtn = document.getElementById(copyBtnId);
+        if (copyBtn) {
+          copyBtn.onclick = function() {
+            copyTextToClipboard(reportMsg);
+            showToast("Application report copied to clipboard!");
+          };
+        }
+      }
+
+      // Detect mobile browsers
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+      let winOpened = false;
+      try {
+        if (!isMobile) {
+          // Attempt popup opening on desktop
+          const newWin = window.open(waUrl, '_blank');
+          if (newWin && !newWin.closed && typeof newWin.closed !== 'undefined') {
+            winOpened = true;
+          }
+        }
+      } catch (e) {
+        winOpened = false;
+      }
+
+      // Fallback if window.open fails, is blocked, or device is mobile
+      if (!winOpened) {
+        // Show fallback UI box inside modal if available
+        if (fallbackBoxId) {
+          const fallbackBox = document.getElementById(fallbackBoxId);
+          if (fallbackBox) fallbackBox.classList.remove('hidden');
+        }
+        
+        showToast("Redirecting to WhatsApp...");
+        setTimeout(() => {
+          window.location.href = waUrl;
+        }, 300);
+      } else {
+        showToast("WhatsApp launched in new tab!");
+      }
+    }
+
+    function copyTextToClipboard(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text);
+      } else {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+      }
+    }
+
+    // Global functions for inline HTML event dispatching
+    function submitCoachingApplication(e) {
+      if (e) e.preventDefault();
+
+      const name = document.getElementById('app-name').value.trim();
+      const age = document.getElementById('app-age').value.trim();
+      const phone = document.getElementById('app-phone').value.trim();
+      const weight = document.getElementById('app-weight').value.trim();
+      const height = document.getElementById('app-height').value.trim();
+      const program = document.getElementById('app-program').value;
+      const goal = document.getElementById('app-goal').value;
+      const exp = document.getElementById('app-experience').value;
+      const notes = document.getElementById('app-notes').value.trim() || 'None provided';
+
+      if (!name || !phone || !weight || !height || !age) {
+        showToast('Please complete all required fields.');
+        return;
+      }
+
+      const btn = document.getElementById('btn-app-submit');
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin text-base"></i> Preparing Report...`;
+      }
+
+      const reportMsg = `📋 *NEW 1-ON-1 COACHING APPLICATION*\n` +
+        `----------------------------------------\n` +
+        `👤 *Client Name:* ${name}\n` +
+        `🎂 *Age:* ${age} years\n` +
+        `📞 *Contact / WhatsApp:* ${phone}\n` +
+        `⚖️ *Weight:* ${weight} kg\n` +
+        `📏 *Height:* ${height} cm\n` +
+        `🎯 *Primary Goal:* ${goal}\n` +
+        `⚡ *Experience Level:* ${exp}\n` +
+        `🏷️ *Selected Program:* ${program}\n` +
+        `----------------------------------------\n` +
+        `📝 *Background & Notes:* ${notes}\n` +
+        `----------------------------------------\n` +
+        `🚀 *Status:* Ready for onboarding & intake review with Coach Mounib.`;
+
+      setTimeout(() => {
+        openWhatsAppMessage(reportMsg, 'app-fallback-box', 'btn-manual-wa-link', 'btn-copy-report');
+        if (btn) {
+          btn.disabled = false;
+          btn.innerHTML = `<i class="fa-brands fa-whatsapp text-base"></i> <span>Submit Application via WhatsApp</span>`;
+        }
+      }, 200);
+    }
+
+    function sendMacroReportWhatsApp() {
+      const gender = document.getElementById('calc-gender').value;
+      const weight = document.getElementById('calc-weight').value;
+      const height = document.getElementById('calc-height').value;
+      const age = document.getElementById('calc-age').value;
+      const goalObj = document.getElementById('calc-goal');
+      const goal = goalObj.options[goalObj.selectedIndex].text;
+      const actObj = document.getElementById('calc-activity');
+      const activity = actObj.options[actObj.selectedIndex].text;
+      
+      const tdee = document.getElementById('res-tdee').textContent;
+      const targetCals = document.getElementById('res-target').textContent;
+      const protein = document.getElementById('res-protein').textContent;
+      const carbs = document.getElementById('res-carbs').textContent;
+      const fats = document.getElementById('res-fats').textContent;
+
+      const btn = document.getElementById('btn-send-stats');
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin text-base"></i> Dispatching Report...`;
+      }
+
+      const reportMsg = `📊 *CLIENT TDEE & MACRO BREAKDOWN REPORT*\n` +
+        `----------------------------------------\n` +
+        `👤 *Gender:* ${gender.toUpperCase()}\n` +
+        `⚖️ *Weight:* ${weight} kg\n` +
+        `📏 *Height:* ${height} cm\n` +
+        `🎂 *Age:* ${age} yrs\n` +
+        `🎯 *Target Goal:* ${goal}\n` +
+        `🔥 *Activity Level:* ${activity}\n` +
+        `----------------------------------------\n` +
+        `📈 *CALORIC & MACRO TARGETS:*\n` +
+        `• *Maintenance (TDEE):* ${tdee} kcal/day\n` +
+        `• *Target Intake:* ${targetCals} kcal/day\n` +
+        `• *Protein Target:* ${protein}\n` +
+        `• *Carbohydrates Target:* ${carbs}\n` +
+        `• *Fats Target:* ${fats}\n` +
+        `----------------------------------------\n` +
+        `💬 *Message:* Coach Mounib, please review my metrics and let me know the recommended program!`;
+
+      setTimeout(() => {
+        openWhatsAppMessage(reportMsg, null, null, null);
+        if (btn) {
+          btn.disabled = false;
+          btn.innerHTML = `<i class="fa-brands fa-whatsapp text-lg"></i> <span>SEND MY STATS VIA WHATSAPP</span>`;
+        }
+      }, 200);
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      if (!toast) return;
+      toast.textContent = msg;
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 3500);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Set Current Year
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // Modal Helper Functions
+      function openModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) modal.classList.remove('hidden');
+      }
+
+      function closeModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+          modal.classList.add('hidden');
+          // Reset fallback box when closing
+          const fb = document.getElementById('app-fallback-box');
+          if (fb) fb.classList.add('hidden');
+        }
+      }
+
+      // Mobile Nav Drawer Toggle
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+
+      if (mobileBtn && mobileMenu && menuIcon) {
+        mobileBtn.addEventListener('click', function() {
+          const isHidden = mobileMenu.classList.contains('hidden');
+          if (isHidden) {
+            mobileMenu.classList.remove('hidden');
+            menuIcon.classList.remove('fa-bars');
+            menuIcon.classList.add('fa-xmark');
+          } else {
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('fa-xmark');
+            menuIcon.classList.add('fa-bars');
+          }
+        });
+      }
+
+      // Mobile Menu Nav Link click handlers
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          if (mobileMenu && menuIcon) {
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('fa-xmark');
+            menuIcon.classList.add('fa-bars');
+          }
+        });
+      });
+
+      // Program Card Select Buttons
+      document.querySelectorAll('.btn-select-program').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const prog = this.getAttribute('data-program');
+          const progSelect = document.getElementById('app-program');
+          if (progSelect && prog) {
+            progSelect.value = prog;
+          }
+          openModal('app-modal');
+        });
+      });
+
+      // Generic Modal Open Buttons
+      document.querySelectorAll('.btn-open-app').forEach(btn => {
+        btn.addEventListener('click', () => openModal('app-modal'));
+      });
+
+      const btnOpenZiraat = document.getElementById('btn-open-ziraat');
+      if (btnOpenZiraat) {
+        btnOpenZiraat.addEventListener('click', () => openModal('ziraat-modal'));
+      }
+
+      // Generic Modal Close Buttons
+      document.querySelectorAll('.btn-close-modal').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const target = this.getAttribute('data-modal-id');
+          if (target) closeModal(target);
+        });
+      });
+
+      // Clipboard Copy Buttons
+      document.querySelectorAll('.btn-copy').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const text = this.getAttribute('data-copy');
+          if (!text) return;
+          copyTextToClipboard(text);
+          showToast(`Copied "${text}" to clipboard!`);
+        });
+      });
+
+      // FAQ Accordion Handlers
+      document.querySelectorAll('.faq-toggle').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const id = this.getAttribute('data-faq-id');
+          const content = document.getElementById(`faq-content-${id}`);
+          const icon = document.getElementById(`faq-icon-${id}`);
+
+          if (content && icon) {
+            const isHidden = content.classList.contains('hidden');
+            if (isHidden) {
+              content.classList.remove('hidden');
+              icon.classList.add('rotate-180');
+            } else {
+              content.classList.add('hidden');
+              icon.classList.remove('rotate-180');
+            }
+          }
+        });
+      });
+
+      // Macro Calculator Logic
+      function calculateMacros() {
+        const gender = document.getElementById('calc-gender').value;
+        const weight = parseFloat(document.getElementById('calc-weight').value);
+        const height = parseFloat(document.getElementById('calc-height').value);
+        const age = parseFloat(document.getElementById('calc-age').value);
+        const activity = parseFloat(document.getElementById('calc-activity').value);
+        const goal = document.getElementById('calc-goal').value;
+
+        // Label Updates
+        document.getElementById('weight-val').textContent = `${weight} kg`;
+        document.getElementById('height-val').textContent = `${height} cm`;
+        document.getElementById('age-val').textContent = `${age} yrs`;
+
+        // BMR Calculation
+        let bmr = 0;
+        if (gender === 'male') {
+          bmr = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
+        } else {
+          bmr = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
+        }
+
+        const tdee = Math.round(bmr * activity);
+        let targetCalories = tdee;
+
+        if (goal === 'shred') {
+          targetCalories = Math.round(tdee * 0.80);
+        } else if (goal === 'bulk') {
+          targetCalories = Math.round(tdee * 1.15);
+        } else {
+          targetCalories = Math.round(tdee);
+        }
+
+        const proteinGrams = Math.round(weight * 2.2);
+        const proteinCalories = proteinGrams * 4;
+        const fatCalories = targetCalories * 0.25;
+        const fatGrams = Math.round(fatCalories / 9);
+        const carbCalories = Math.max(0, targetCalories - (proteinCalories + fatCalories));
+        const carbGrams = Math.round(carbCalories / 4);
+
+        document.getElementById('res-tdee').textContent = tdee.toLocaleString();
+        document.getElementById('res-target').textContent = targetCalories.toLocaleString();
+        document.getElementById('res-protein').textContent = `${proteinGrams}g`;
+        document.getElementById('res-carbs').textContent = `${carbGrams}g`;
+        document.getElementById('res-fats').textContent = `${fatGrams}g`;
+      }
+
+      document.querySelectorAll('.calc-trigger').forEach(input => {
+        input.addEventListener('input', calculateMacros);
+        input.addEventListener('change', calculateMacros);
+      });
+
+      calculateMacros(); // Initial run
+
+      // Bind Stats Button Listener directly
+      const btnSendStats = document.getElementById('btn-send-stats');
+      if (btnSendStats) {
+        btnSendStats.onclick = sendMacroReportWhatsApp;
+      }
+    });
+  </script>
+</body>
+</html>
