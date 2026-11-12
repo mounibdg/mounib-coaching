@@ -12,6 +12,8 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Personalized 1-on-1 physique coaching with Coach Mounib Daghfous. Training, nutrition, and progress accountability." />
+    <meta name="theme-color" content="#0d0d0d" />
     <title>Mounib Coaching | High-Intensity Physique Transformation</title>
 
     <!-- Tailwind CSS CDN -->
@@ -79,6 +81,52 @@
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
             background: #f59e0b;
         }
+
+
+        /* Smooth motion system */
+        html { scroll-behavior: smooth; }
+        .glass-card, .glass-card-amber {
+            transition: transform .55s cubic-bezier(.2,.8,.2,1), box-shadow .55s ease, border-color .4s ease, background-color .4s ease;
+        }
+        .glass-card:hover, .glass-card-amber:hover {
+            transform: translateY(-4px);
+        }
+        .motion-reveal {
+            opacity: 0;
+            transform: translate3d(0, 28px, 0) scale(.985);
+            transition: opacity .85s cubic-bezier(.16,1,.3,1), transform .85s cubic-bezier(.16,1,.3,1);
+            will-change: opacity, transform;
+        }
+        .motion-reveal.is-visible { opacity: 1; transform: translate3d(0,0,0) scale(1); }
+        .motion-reveal[data-motion-delay="1"] { transition-delay: 90ms; }
+        .motion-reveal[data-motion-delay="2"] { transition-delay: 180ms; }
+        .motion-reveal[data-motion-delay="3"] { transition-delay: 270ms; }
+        .motion-reveal[data-motion-delay="4"] { transition-delay: 360ms; }
+        #app-modal, #bank-modal {
+            transition: opacity .38s cubic-bezier(.2,.8,.2,1), backdrop-filter .38s ease;
+        }
+        #app-modal > div, #bank-modal > div {
+            opacity: 0;
+            transform: translate3d(0, 24px, 0) scale(.96);
+            transition: opacity .42s cubic-bezier(.16,1,.3,1), transform .55s cubic-bezier(.16,1,.3,1);
+        }
+        #app-modal.modal-visible > div, #bank-modal.modal-visible > div {
+            opacity: 1;
+            transform: translate3d(0,0,0) scale(1);
+        }
+        #mobile-menu {
+            transform-origin: top;
+            transition: opacity .28s ease, transform .38s cubic-bezier(.16,1,.3,1), max-height .38s ease;
+        }
+        #mobile-menu.menu-animating { animation: menuDrop .38s cubic-bezier(.16,1,.3,1) both; }
+        @keyframes menuDrop { from { opacity: 0; transform: translateY(-10px) scaleY(.96); } to { opacity: 1; transform: translateY(0) scaleY(1); } }
+        #toast { transition: transform .45s cubic-bezier(.16,1,.3,1), opacity .3s ease; }
+        button, a { -webkit-tap-highlight-color: transparent; }
+        button:active, a:active { transform: scale(.98); }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+            .motion-reveal { opacity: 1; transform: none; }
+        }
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-amberGlow selection:text-black custom-scrollbar">
@@ -132,7 +180,7 @@
                     <button onclick="setLanguage('tr')" id="lang-btn-mob-tr" class="px-2 py-0.5 rounded text-gray-400">TR</button>
                     <button onclick="setLanguage('ar')" id="lang-btn-mob-ar" class="px-2 py-0.5 rounded text-gray-400">AR</button>
                 </div>
-                <button onclick="toggleMobileMenu()" class="p-2 text-gray-300 hover:text-white focus:outline-none">
+                <button type="button" id="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" aria-controls="mobile-menu" aria-expanded="false" class="p-2 text-gray-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-amberGlow rounded-lg">
                     <i id="mobile-menu-icon" class="fas fa-bars text-xl"></i>
                 </button>
             </div>
@@ -140,11 +188,11 @@
 
         <!-- Mobile Dropdown Menu -->
         <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-obsidian/95 px-4 pt-4 pb-6 space-y-3">
-            <a href="#programs" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-surface hover:text-amberGlow" data-i18n="nav_programs">Programs</a>
-            <a href="#calculator" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-surface hover:text-amberGlow" data-i18n="nav_calculator">Macro Calculator</a>
-            <a href="#payment" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-surface hover:text-amberGlow" data-i18n="nav_payment">Payment Options</a>
-            <a href="#faq" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-surface hover:text-amberGlow" data-i18n="nav_faq">FAQ</a>
-            <button onclick="toggleMobileMenu(); openModal();" class="w-full mt-2 px-5 py-3 rounded-xl bg-amberGlow text-obsidian font-heading font-bold text-center tracking-wide shadow-amber-glow" data-i18n="btn_apply_now">
+            <a href="#programs" onclick="toggleMobileMenu(true)" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-surface hover:text-amberGlow" data-i18n="nav_programs">Programs</a>
+            <a href="#calculator" onclick="toggleMobileMenu(true)" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-surface hover:text-amberGlow" data-i18n="nav_calculator">Macro Calculator</a>
+            <a href="#payment" onclick="toggleMobileMenu(true)" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-surface hover:text-amberGlow" data-i18n="nav_payment">Payment Options</a>
+            <a href="#faq" onclick="toggleMobileMenu(true)" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-surface hover:text-amberGlow" data-i18n="nav_faq">FAQ</a>
+            <button onclick="toggleMobileMenu(true); openModal();" class="w-full mt-2 px-5 py-3 rounded-xl bg-amberGlow text-obsidian font-heading font-bold text-center tracking-wide shadow-amber-glow" data-i18n="btn_apply_now">
                 APPLY NOW 🔥
             </button>
         </div>
@@ -375,10 +423,10 @@
                     <div>
                         <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2" data-i18n="lbl_gender">Gender</label>
                         <div class="grid grid-cols-2 gap-3">
-                            <button type="button" onclick="setCalcGender('male')" id="calc-gender-male" class="py-3 rounded-xl border border-amberGlow bg-amberGlow/10 text-white font-bold text-sm flex items-center justify-center gap-2">
+                            <button type="button" onclick="setCalcGender('male')" id="calc-gender-male" aria-pressed="true" class="py-3 rounded-xl border border-amberGlow bg-amberGlow/10 text-white font-bold text-sm flex items-center justify-center gap-2">
                                 <i class="fas fa-mars text-amberGlow"></i> <span data-i18n="opt_male">Male</span>
                             </button>
-                            <button type="button" onclick="setCalcGender('female')" id="calc-gender-female" class="py-3 rounded-xl border border-white/10 bg-surfaceLight text-gray-400 font-bold text-sm flex items-center justify-center gap-2">
+                            <button type="button" onclick="setCalcGender('female')" id="calc-gender-female" aria-pressed="false" class="py-3 rounded-xl border border-white/10 bg-surfaceLight text-gray-400 font-bold text-sm flex items-center justify-center gap-2">
                                 <i class="fas fa-venus text-pink-400"></i> <span data-i18n="opt_female">Female</span>
                             </button>
                         </div>
@@ -559,7 +607,7 @@
                         </div>
                     </div>
 
-                    <a href="https://www.shopier.com" target="_blank" class="mt-6 w-full py-3 rounded-xl bg-amberGlow text-obsidian font-heading font-bold text-xs tracking-wide hover:bg-amberHover transition-colors flex items-center justify-center gap-2 shadow-amber-glow">
+                    <a href="https://www.shopier.com" target="_blank" rel="noopener noreferrer" class="mt-6 w-full py-3 rounded-xl bg-amberGlow text-obsidian font-heading font-bold text-xs tracking-wide hover:bg-amberHover transition-colors flex items-center justify-center gap-2 shadow-amber-glow">
                         <span data-i18n="btn_shopier">PAY VIA SHOPIER</span> <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
@@ -579,7 +627,7 @@
 
             <div class="space-y-4">
                 <div class="glass-card rounded-xl p-5 border border-white/5">
-                    <button onclick="toggleFaq(1)" class="w-full flex justify-between items-center text-left">
+                    <button type="button" onclick="toggleFaq(1)" aria-expanded="false" aria-controls="faq-ans-1" class="w-full flex justify-between items-center text-left">
                         <span class="font-heading font-bold text-base text-white" data-i18n="q1">How does 1-on-1 WhatsApp coaching work?</span>
                         <i id="faq-icon-1" class="fas fa-chevron-down text-amberGlow transition-transform"></i>
                     </button>
@@ -589,7 +637,7 @@
                 </div>
 
                 <div class="glass-card rounded-xl p-5 border border-white/5">
-                    <button onclick="toggleFaq(2)" class="w-full flex justify-between items-center text-left">
+                    <button type="button" onclick="toggleFaq(2)" aria-expanded="false" aria-controls="faq-ans-2" class="w-full flex justify-between items-center text-left">
                         <span class="font-heading font-bold text-base text-white" data-i18n="q2">What is Mechanical Failure Training (HIT)?</span>
                         <i id="faq-icon-2" class="fas fa-chevron-down text-amberGlow transition-transform"></i>
                     </button>
@@ -599,7 +647,7 @@
                 </div>
 
                 <div class="glass-card rounded-xl p-5 border border-white/5">
-                    <button onclick="toggleFaq(3)" class="w-full flex justify-between items-center text-left">
+                    <button type="button" onclick="toggleFaq(3)" aria-expanded="false" aria-controls="faq-ans-3" class="w-full flex justify-between items-center text-left">
                         <span class="font-heading font-bold text-base text-white" data-i18n="q3">Can I join if I live outside Turkey?</span>
                         <i id="faq-icon-3" class="fas fa-chevron-down text-amberGlow transition-transform"></i>
                     </button>
@@ -624,10 +672,10 @@
     </footer>
 
     <!-- Application Modal -->
-    <div id="app-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
+    <div id="app-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="application-modal-title" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
         <div class="glass-card-amber w-full max-w-xl rounded-2xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto custom-scrollbar relative border border-amberGlow/50 shadow-amber-glow-lg">
             
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white p-2">
+            <button type="button" onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white p-2">
                 <i class="fas fa-times text-xl"></i>
             </button>
 
@@ -635,7 +683,7 @@
                 <div class="w-12 h-12 rounded-xl bg-amberGlow/20 border border-amberGlow/50 flex items-center justify-center mx-auto mb-3">
                     <i class="fas fa-clipboard-list text-amberGlow text-xl"></i>
                 </div>
-                <h3 class="font-heading font-black text-2xl text-white" data-i18n="modal_title">1-on-1 Coaching Application</h3>
+                <h3 id="application-modal-title" class="font-heading font-black text-2xl text-white" data-i18n="modal_title">1-on-1 Coaching Application</h3>
                 <p class="text-xs text-gray-400 mt-1" data-i18n="modal_sub">Direct Route to Coach Mounib Daghfous</p>
             </div>
 
@@ -643,7 +691,7 @@
                 <!-- Full Name -->
                 <div>
                     <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1" data-i18n="modal_lbl_name">Full Name *</label>
-                    <input type="text" id="app-name" required placeholder="e.g. John Doe" class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-amberGlow text-sm" />
+                    <input type="text" id="app-name" name="name" autocomplete="name" minlength="2" maxlength="80" required placeholder="e.g. John Doe" class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-amberGlow text-sm" />
                 </div>
 
                 <!-- Gender Radio & Age (Responsive Full Width on Mobile) -->
@@ -667,32 +715,32 @@
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1" data-i18n="lbl_age">Age *</label>
-                        <input type="number" id="app-age" required placeholder="25" min="15" max="80" class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-amberGlow text-sm" />
+                        <input type="number" id="app-age" name="age" required placeholder="25" min="16" max="80" step="1" class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-amberGlow text-sm" />
                     </div>
                 </div>
 
                 <!-- Phone / WhatsApp Number -->
                 <div>
                     <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1" data-i18n="modal_lbl_phone">Phone / WhatsApp Number *</label>
-                    <input type="tel" id="app-phone" required placeholder="e.g. +1 555 123 4567" class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-amberGlow text-sm" />
+                    <input type="tel" id="app-phone" name="phone" autocomplete="tel" minlength="7" maxlength="25" pattern="[+0-9() .-]{7,25}" required placeholder="e.g. +1 555 123 4567" class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-amberGlow text-sm" />
                 </div>
 
                 <!-- Weight & Height -->
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1" data-i18n="lbl_weight">Current Weight (kg) *</label>
-                        <input type="number" id="app-weight" required placeholder="75" class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-amberGlow text-sm" />
+                        <input type="number" id="app-weight" name="weight" required placeholder="75" min="30" max="300" step="0.1" inputmode="decimal" class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-amberGlow text-sm" />
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1" data-i18n="lbl_height">Current Height (cm) *</label>
-                        <input type="number" id="app-height" required placeholder="178" class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-amberGlow text-sm" />
+                        <input type="number" id="app-height" name="height" required placeholder="178" min="100" max="250" step="1" inputmode="numeric" class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-amberGlow text-sm" />
                     </div>
                 </div>
 
                 <!-- Selected Program (Full width on mobile) -->
                 <div>
                     <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1" data-i18n="modal_lbl_prog">Selected Program *</label>
-                    <select id="app-program" class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white focus:outline-none focus:border-amberGlow text-sm">
+                    <select id="app-program" name="program" required class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white focus:outline-none focus:border-amberGlow text-sm">
                         <option value="The Shred Protocol (12-Week)">The Shred Protocol (12-Week - $200 / ₺10,000)</option>
                         <option value="Lean Bulk Blueprint (12-Week)">Lean Bulk Blueprint (12-Week - $200 / ₺10,000)</option>
                         <option value="Recomp & Maintain (12-Week)">Recomp & Maintain (12-Week - $200 / ₺10,000)</option>
@@ -704,7 +752,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1" data-i18n="lbl_goal">Primary Goal *</label>
-                        <select id="app-goal" class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white focus:outline-none focus:border-amberGlow text-sm">
+                        <select id="app-goal" name="goal" required class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white focus:outline-none focus:border-amberGlow text-sm">
                             <option value="Aggressive Fat Loss" data-i18n="goal_shred">Aggressive Fat Loss</option>
                             <option value="Lean Muscle Hypertrophy" data-i18n="goal_bulk">Lean Muscle Hypertrophy</option>
                             <option value="Body Recomposition" data-i18n="goal_recomp">Body Recomposition</option>
@@ -712,7 +760,7 @@
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1" data-i18n="modal_lbl_exp">Experience Level *</label>
-                        <select id="app-exp" class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white focus:outline-none focus:border-amberGlow text-sm">
+                        <select id="app-exp" name="experience" required class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white focus:outline-none focus:border-amberGlow text-sm">
                             <option value="Beginner (< 1 Year)" data-i18n="exp_beg">Beginner (&lt; 1 Year)</option>
                             <option value="Intermediate (1-3 Years)" selected data-i18n="exp_int">Intermediate (1-3 Years)</option>
                             <option value="Advanced (3+ Years)" data-i18n="exp_adv">Advanced (3+ Years)</option>
@@ -723,7 +771,7 @@
                 <!-- Notes -->
                 <div>
                     <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1" data-i18n="modal_lbl_notes">Training History & Notes</label>
-                    <textarea id="app-notes" rows="2" placeholder="Tell Coach Mounib about your training experience, injuries, or dietary preferences..." class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-amberGlow text-sm"></textarea>
+                    <textarea id="app-notes" name="notes" maxlength="1500" rows="2" placeholder="Tell Coach Mounib about your training experience, injuries, or dietary preferences..." class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-amberGlow text-sm"></textarea>
                 </div>
 
                 <button type="submit" id="app-submit-btn" class="w-full py-4 rounded-xl bg-amberGlow text-obsidian font-heading font-black text-sm tracking-wide hover:bg-amberHover transition-colors flex items-center justify-center gap-2 shadow-amber-glow mt-4">
@@ -735,7 +783,7 @@
             <div id="app-fallback-box" class="hidden mt-4 p-4 rounded-xl bg-surface border border-amberGlow/40 text-center space-y-3">
                 <p class="text-xs text-amberGlow font-bold">WhatsApp Direct Link generated!</p>
                 <div class="flex gap-2">
-                    <a id="app-fallback-link" href="#" target="_blank" class="flex-1 py-2 rounded-lg bg-amberGlow text-obsidian font-bold text-xs">Open WhatsApp Now</a>
+                    <a id="app-fallback-link" href="#" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 rounded-lg bg-amberGlow text-obsidian font-bold text-xs">Open WhatsApp Now</a>
                     <button type="button" onclick="copyFormattedReport()" class="px-4 py-2 rounded-lg bg-surfaceLight text-white font-bold text-xs border border-white/10">Copy Report</button>
                 </div>
             </div>
@@ -743,13 +791,13 @@
     </div>
 
     <!-- Bank Details Modal -->
-    <div id="bank-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
+    <div id="bank-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="bank-modal-title" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
         <div class="glass-card rounded-2xl p-6 sm:p-8 max-w-md w-full relative border border-white/10">
-            <button onclick="closeBankModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white p-2">
+            <button type="button" onclick="closeBankModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white p-2">
                 <i class="fas fa-times text-xl"></i>
             </button>
             
-            <h3 class="font-heading font-bold text-xl text-white mb-4">Ziraat Bank Transfer</h3>
+            <h3 id="bank-modal-title" class="font-heading font-bold text-xl text-white mb-4">Ziraat Bank Transfer</h3>
             
             <div class="space-y-4 text-xs">
                 <div class="p-3 bg-surface rounded-xl border border-white/5">
@@ -767,7 +815,7 @@
                 </div>
             </div>
 
-            <button onclick="closeBankModal()" class="mt-6 w-full py-3 rounded-xl bg-surfaceLight text-white font-bold text-xs">
+            <button type="button" onclick="closeBankModal()" class="mt-6 w-full py-3 rounded-xl bg-surfaceLight text-white font-bold text-xs">
                 CLOSE WINDOW
             </button>
         </div>
@@ -1132,282 +1180,348 @@
         };
 
         function setLanguage(lang) {
+            if (!Object.prototype.hasOwnProperty.call(translations, lang)) return;
             currentLanguage = lang;
             document.documentElement.lang = lang;
-            
-            // Handle RTL direction for Arabic
-            if(lang === 'ar') {
-                document.documentElement.dir = 'rtl';
-            } else {
-                document.documentElement.dir = 'ltr';
-            }
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
 
-            // Update UI translation elements
-            document.querySelectorAll('[data-i18n]').forEach(el => {
+            document.querySelectorAll('[data-i18n]').forEach((el) => {
                 const key = el.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
-                    el.innerText = translations[lang][key];
-                }
+                const translated = translations[lang]?.[key];
+                if (typeof translated === 'string') el.textContent = translated;
             });
 
-            // Update language selector active states
-            ['en', 'tr', 'ar'].forEach(l => {
-                const desktopBtn = document.getElementById(`lang-btn-${l}`);
-                const mobBtn = document.getElementById(`lang-btn-mob-${l}`);
-                if (l === lang) {
-                    desktopBtn.className = "px-2.5 py-1 rounded-lg text-amberGlow bg-amberGlow/10 transition-colors";
-                    mobBtn.className = "px-2 py-0.5 rounded text-amberGlow bg-amberGlow/10";
-                } else {
-                    desktopBtn.className = "px-2.5 py-1 rounded-lg text-gray-400 hover:text-white transition-colors";
-                    mobBtn.className = "px-2 py-0.5 rounded text-gray-400";
+            ['en', 'tr', 'ar'].forEach((language) => {
+                const active = language === lang;
+                const desktopBtn = document.getElementById(`lang-btn-${language}`);
+                const mobileBtn = document.getElementById(`lang-btn-mob-${language}`);
+                if (desktopBtn) {
+                    desktopBtn.className = active
+                        ? 'px-2.5 py-1 rounded-lg text-amberGlow bg-amberGlow/10 transition-colors'
+                        : 'px-2.5 py-1 rounded-lg text-gray-400 hover:text-white transition-colors';
+                    desktopBtn.setAttribute('aria-pressed', String(active));
+                }
+                if (mobileBtn) {
+                    mobileBtn.className = active
+                        ? 'px-2 py-0.5 rounded text-amberGlow bg-amberGlow/10'
+                        : 'px-2 py-0.5 rounded text-gray-400';
+                    mobileBtn.setAttribute('aria-pressed', String(active));
                 }
             });
-
             updateCalculator();
         }
 
-        function toggleMobileMenu() {
+        function toggleMobileMenu(forceClose = false) {
             const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            const button = document.getElementById('mobile-menu-toggle');
+            const icon = document.getElementById('mobile-menu-icon');
+            if (!menu) return;
+            const shouldOpen = forceClose ? false : menu.classList.contains('hidden');
+            menu.classList.toggle('hidden', !shouldOpen);
+            if (shouldOpen) {
+                menu.classList.remove('menu-animating');
+                void menu.offsetWidth;
+                menu.classList.add('menu-animating');
+            } else {
+                menu.classList.remove('menu-animating');
+            }
+            if (button) button.setAttribute('aria-expanded', String(shouldOpen));
+            if (icon) icon.className = shouldOpen ? 'fas fa-times text-xl' : 'fas fa-bars text-xl';
         }
 
         function setCalcGender(gender) {
+            if (!['male', 'female'].includes(gender)) return;
             currentGender = gender;
             const maleBtn = document.getElementById('calc-gender-male');
             const femaleBtn = document.getElementById('calc-gender-female');
-            
-            if(gender === 'male') {
-                maleBtn.className = 'py-3 rounded-xl border border-amberGlow bg-amberGlow/10 text-white font-bold text-sm flex items-center justify-center gap-2';
-                femaleBtn.className = 'py-3 rounded-xl border border-white/10 bg-surfaceLight text-gray-400 font-bold text-sm flex items-center justify-center gap-2';
-            } else {
-                femaleBtn.className = 'py-3 rounded-xl border border-pink-500 bg-pink-500/10 text-white font-bold text-sm flex items-center justify-center gap-2';
-                maleBtn.className = 'py-3 rounded-xl border border-white/10 bg-surfaceLight text-gray-400 font-bold text-sm flex items-center justify-center gap-2';
-            }
+            if (!maleBtn || !femaleBtn) return;
+
+            maleBtn.className = gender === 'male'
+                ? 'py-3 rounded-xl border border-amberGlow bg-amberGlow/10 text-white font-bold text-sm flex items-center justify-center gap-2'
+                : 'py-3 rounded-xl border border-white/10 bg-surfaceLight text-gray-400 font-bold text-sm flex items-center justify-center gap-2';
+            femaleBtn.className = gender === 'female'
+                ? 'py-3 rounded-xl border border-pink-500 bg-pink-500/10 text-white font-bold text-sm flex items-center justify-center gap-2'
+                : 'py-3 rounded-xl border border-white/10 bg-surfaceLight text-gray-400 font-bold text-sm flex items-center justify-center gap-2';
+            maleBtn.setAttribute('aria-pressed', String(gender === 'male'));
+            femaleBtn.setAttribute('aria-pressed', String(gender === 'female'));
             updateCalculator();
         }
 
         function updateCalculator() {
-            const age = parseInt(document.getElementById('calc-age').value);
-            const weight = parseInt(document.getElementById('calc-weight').value);
-            const height = parseInt(document.getElementById('calc-height').value);
-            const goal = document.getElementById('calc-goal').value;
-            const activity = parseFloat(document.getElementById('calc-activity').value);
+            const ageEl = document.getElementById('calc-age');
+            const weightEl = document.getElementById('calc-weight');
+            const heightEl = document.getElementById('calc-height');
+            const goalEl = document.getElementById('calc-goal');
+            const activityEl = document.getElementById('calc-activity');
+            if (![ageEl, weightEl, heightEl, goalEl, activityEl].every(Boolean)) return;
 
-            document.getElementById('calc-age-val').innerText = age + (currentLanguage === 'tr' ? ' yaş' : currentLanguage === 'ar' ? ' سنة' : ' yrs');
-            document.getElementById('calc-weight-val').innerText = weight + ' kg';
-            document.getElementById('calc-height-val').innerText = height + ' cm';
+            const age = Number(ageEl.value);
+            const weight = Number(weightEl.value);
+            const height = Number(heightEl.value);
+            const activity = Number(activityEl.value);
+            const goal = goalEl.value;
+            if (![age, weight, height, activity].every(Number.isFinite) ||
+                age <= 0 || weight <= 0 || height <= 0 || activity <= 0) return;
 
-            // Mifflin-St Jeor Formula
-            let bmr = (10 * weight) + (6.25 * height) - (5 * age);
-            bmr = (currentGender === 'male') ? bmr + 5 : bmr - 161;
+            const ageSuffix = currentLanguage === 'tr' ? ' yaş' : currentLanguage === 'ar' ? ' سنة' : ' yrs';
+            document.getElementById('calc-age-val').textContent = age + ageSuffix;
+            document.getElementById('calc-weight-val').textContent = weight + ' kg';
+            document.getElementById('calc-height-val').textContent = height + ' cm';
 
-            const tdee = Math.round(bmr * activity);
+            // Mifflin-St Jeor estimate; results are estimates, not medical advice.
+            const bmrBase = (10 * weight) + (6.25 * height) - (5 * age);
+            const bmr = currentGender === 'male' ? bmrBase + 5 : bmrBase - 161;
+            const tdee = Math.max(0, Math.round(bmr * activity));
             let targetCal = tdee;
-
             if (goal === 'shred') targetCal = Math.round(tdee - 500);
-            else if (goal === 'bulk') targetCal = Math.round(tdee + 300);
+            if (goal === 'bulk') targetCal = Math.round(tdee + 300);
+            // Prevent nonsensical negative targets for very small inputs.
+            targetCal = Math.max(1200, targetCal);
 
             const proteinGrams = Math.round(weight * 2.2);
-            const fatGrams = Math.round((targetCal * 0.25) / 9);
+            const fatGrams = Math.max(0, Math.round((targetCal * 0.25) / 9));
             const carbGrams = Math.max(0, Math.round((targetCal - (proteinGrams * 4) - (fatGrams * 9)) / 4));
 
-            document.getElementById('res-tdee').innerText = tdee.toLocaleString();
-            document.getElementById('res-target').innerText = targetCal.toLocaleString();
-            document.getElementById('res-protein').innerText = proteinGrams + 'g';
-            document.getElementById('res-split').innerText = `${carbGrams}g / ${fatGrams}g`;
+            document.getElementById('res-tdee').textContent = tdee.toLocaleString();
+            document.getElementById('res-target').textContent = targetCal.toLocaleString();
+            document.getElementById('res-protein').textContent = proteinGrams + 'g';
+            document.getElementById('res-split').textContent = `${carbGrams}g / ${fatGrams}g`;
         }
 
         function sendMacroReportWhatsApp() {
+            updateCalculator();
             const age = document.getElementById('calc-age').value;
             const weight = document.getElementById('calc-weight').value;
             const height = document.getElementById('calc-height').value;
-            const goalText = document.getElementById('calc-goal').options[document.getElementById('calc-goal').selectedIndex].text;
-            const tdee = document.getElementById('res-tdee').innerText;
-            const target = document.getElementById('res-target').innerText;
-            const protein = document.getElementById('res-protein').innerText;
-            const split = document.getElementById('res-split').innerText;
+            const goalText = document.getElementById('calc-goal').selectedOptions[0].text;
+            const tdee = document.getElementById('res-tdee').textContent;
+            const target = document.getElementById('res-target').textContent;
+            const protein = document.getElementById('res-protein').textContent;
+            const split = document.getElementById('res-split').textContent;
 
-            let msg = '';
-            if(currentLanguage === 'tr') {
-                msg = `📊 *MOUNIB COACHING - MAKRO & TDEE RAPORU*\n` +
-                      `--------------------------------------\n` +
-                      `⚧ *Cinsiyet:* ${currentGender === 'male' ? 'Erkek' : 'Kadın'}\n` +
-                      `🎂 *Yaş:* ${age}\n` +
-                      `⚖️ *Kilo:* ${weight} kg | 📏 *Boy:* ${height} cm\n` +
-                      `🎯 *Hedef:* ${goalText}\n` +
-                      `--------------------------------------\n` +
-                      `🔥 *Tahmini TDEE:* ${tdee} kcal/gün\n` +
-                      `🎯 *Hedef Kalori:* ${target} kcal/gün\n` +
-                      `🥩 *Hedef Protein:* ${protein}\n` +
-                      `🍚 *Karb / Yağ Dağılımı:* ${split}\n` +
-                      `--------------------------------------\n` +
-                      `Koç Mounib, sitem üzerinden makrolarımı hesapladım ve koçluğa başlamak istiyorum!`;
-            } else if(currentLanguage === 'ar') {
-                msg = `📊 *MOUNIB COACHING - تقرير السعرات والماكروز*\n` +
-                      `--------------------------------------\n` +
-                      `⚧ *الجنس:* ${currentGender === 'male' ? 'ذكر' : 'أنثى'}\n` +
-                      `🎂 *العمر:* ${age}\n` +
-                      `⚖️ *الوزن:* ${weight} كجم | 📏 *الطول:* ${height} سم\n` +
-                      `🎯 *الهدف:* ${goalText}\n` +
-                      `--------------------------------------\n` +
-                      `🔥 *احتياج السعرات (TDEE):* ${tdee} سعرة/يوم\n` +
-                      `🎯 *السعرات المستهدفة:* ${target} سعرة/يوم\n` +
-                      `🥩 *البروتين اليومي:* ${protein}\n` +
-                      `🍚 *توزيع الكارب والدهون:* ${split}\n` +
-                      `--------------------------------------\n` +
-                      `كوتش منير، قمت بحساب بياناتي على الموقع وأود البدء في التدريب!`;
+            if (currentLanguage === 'tr') {
+                currentReportText = `📊 *MOUNIB COACHING - MAKRO & TDEE RAPORU*\n--------------------------------------\n⚧ *Cinsiyet:* ${currentGender === 'male' ? 'Erkek' : 'Kadın'}\n🎂 *Yaş:* ${age}\n⚖️ *Kilo:* ${weight} kg | 📏 *Boy:* ${height} cm\n🎯 *Hedef:* ${goalText}\n--------------------------------------\n🔥 *Tahmini TDEE:* ${tdee} kcal/gün\n🎯 *Hedef Kalori:* ${target} kcal/gün\n🥩 *Hedef Protein:* ${protein}\n🍚 *Karb / Yağ Dağılımı:* ${split}\n--------------------------------------\nKoç Mounib, sitem üzerinden makrolarımı hesapladım ve koçluğa başlamak istiyorum!`;
+            } else if (currentLanguage === 'ar') {
+                currentReportText = `📊 *MOUNIB COACHING - تقرير السعرات والماكروز*\n--------------------------------------\n⚧ *الجنس:* ${currentGender === 'male' ? 'ذكر' : 'أنثى'}\n🎂 *العمر:* ${age}\n⚖️ *الوزن:* ${weight} كجم | 📏 *الطول:* ${height} سم\n🎯 *الهدف:* ${goalText}\n--------------------------------------\n🔥 *احتياج السعرات (TDEE):* ${tdee} سعرة/يوم\n🎯 *السعرات المستهدفة:* ${target} سعرة/يوم\n🥩 *البروتين اليومي:* ${protein}\n🍚 *توزيع الكارب والدهون:* ${split}\n--------------------------------------\nكوتش منير، قمت بحساب بياناتي على الموقع وأود البدء في التدريب!`;
             } else {
-                msg = `📊 *MOUNIB COACHING - MACRO & TDEE REPORT*\n` +
-                      `--------------------------------------\n` +
-                      `⚧ *Gender:* ${currentGender.toUpperCase()}\n` +
-                      `🎂 *Age:* ${age} yrs\n` +
-                      `⚖️ *Weight:* ${weight} kg | 📏 *Height:* ${height} cm\n` +
-                      `🎯 *Goal:* ${goalText}\n` +
-                      `--------------------------------------\n` +
-                      `🔥 *TDEE Estimate:* ${tdee} kcal/day\n` +
-                      `🎯 *Daily Calorie Target:* ${target} kcal/day\n` +
-                      `🥩 *Protein Target:* ${protein}\n` +
-                      `🍚 *Carbs / Fats Split:* ${split}\n` +
-                      `--------------------------------------\n` +
-                      `Coach Mounib, I calculated my stats on your site and would like to get started!`;
+                currentReportText = `📊 *MOUNIB COACHING - MACRO & TDEE REPORT*\n--------------------------------------\n⚧ *Gender:* ${currentGender.toUpperCase()}\n🎂 *Age:* ${age} yrs\n⚖️ *Weight:* ${weight} kg | 📏 *Height:* ${height} cm\n🎯 *Goal:* ${goalText}\n--------------------------------------\n🔥 *TDEE Estimate:* ${tdee} kcal/day\n🎯 *Daily Calorie Target:* ${target} kcal/day\n🥩 *Protein Target:* ${protein}\n🍚 *Carbs / Fats Split:* ${split}\n--------------------------------------\nCoach Mounib, I calculated my stats on your site and would like to get started!`;
             }
-
-            openWhatsApp(msg);
+            openWhatsApp(currentReportText);
         }
 
         function submitCoachingApplication(event) {
             event.preventDefault();
-            const name = document.getElementById('app-name').value;
-            const gender = document.querySelector('input[name="app-gender"]:checked').value;
+            const form = document.getElementById('coaching-form');
+            if (!form.reportValidity()) return;
+
+            const name = document.getElementById('app-name').value.trim();
+            const genderInput = document.querySelector('input[name="app-gender"]:checked');
             const age = document.getElementById('app-age').value;
-            const phone = document.getElementById('app-phone').value;
+            const phone = document.getElementById('app-phone').value.trim();
             const weight = document.getElementById('app-weight').value;
             const height = document.getElementById('app-height').value;
             const program = document.getElementById('app-program').value;
             const goal = document.getElementById('app-goal').value;
             const exp = document.getElementById('app-exp').value;
-            const notes = document.getElementById('app-notes').value || 'None';
+            const notes = document.getElementById('app-notes').value.trim() || 'None';
+            const gender = genderInput ? genderInput.value : 'Not specified';
 
-            if(currentLanguage === 'tr') {
-                currentReportText = `💪 *1-E-1 KOÇLUK BAŞVURUSU - MOUNIB COACHING*\n` +
-                                    `--------------------------------------\n` +
-                                    `👤 *Ad Soyad:* ${name}\n` +
-                                    `⚧ *Cinsiyet:* ${gender === 'Male' ? 'Erkek' : 'Kadın'}\n` +
-                                    `🎂 *Yaş:* ${age}\n` +
-                                    `📱 *WhatsApp:* ${phone}\n` +
-                                    `📌 *Seçilen Program:* ${program}\n` +
-                                    `🎯 *Ana Hedef:* ${goal}\n` +
-                                    `🏋️ *Deneyim:* ${exp}\n` +
-                                    `⚖️ *Kilo:* ${weight} kg | 📏 *Boy:* ${height} cm\n` +
-                                    `📝 *Notlar:* ${notes}\n` +
-                                    `--------------------------------------\n` +
-                                    `Koç Mounib ile antrenmanlara başlamaya hazırım!`;
-            } else if(currentLanguage === 'ar') {
-                currentReportText = `💪 *طلب تدريب شخصي 1-على-1 - MOUNIB COACHING*\n` +
-                                    `--------------------------------------\n` +
-                                    `👤 *الاسم:* ${name}\n` +
-                                    `⚧ *الجنس:* ${gender === 'Male' ? 'ذكر' : 'أنثى'}\n` +
-                                    `🎂 *العمر:* ${age}\n` +
-                                    `📱 *الواتساب:* ${phone}\n` +
-                                    `📌 *البرنامج المختار:* ${program}\n` +
-                                    `🎯 *الهدف الرئيسي:* ${goal}\n` +
-                                    `🏋️ *الخبرة:* ${exp}\n` +
-                                    `⚖️ *الوزن:* ${weight} كجم | 📏 *الطول:* ${height} سم\n` +
-                                    `📝 *ملاحظات:* ${notes}\n` +
-                                    `--------------------------------------\n` +
-                                    `جاهز للبدء في التدريب مع الكوتش منير!`;
-            } else {
-                currentReportText = `💪 *NEW COACHING APPLICATION - MOUNIB COACHING*\n` +
-                                    `--------------------------------------\n` +
-                                    `👤 *Name:* ${name}\n` +
-                                    `⚧ *Gender:* ${gender}\n` +
-                                    `🎂 *Age:* ${age}\n` +
-                                    `📱 *WhatsApp:* ${phone}\n` +
-                                    `📌 *Selected Program:* ${program}\n` +
-                                    `🎯 *Primary Goal:* ${goal}\n` +
-                                    `🏋️ *Experience:* ${exp}\n` +
-                                    `⚖️ *Weight:* ${weight} kg | 📏 *Height:* ${height} cm\n` +
-                                    `📝 *Notes:* ${notes}\n` +
-                                    `--------------------------------------\n` +
-                                    `Ready to start training with Coach Mounib!`;
+            if (!name || !phone || !gender) {
+                showToast('Please complete all required fields.', 'error');
+                return;
             }
 
+            if (currentLanguage === 'tr') {
+                currentReportText = `💪 *1-E-1 KOÇLUK BAŞVURUSU - MOUNIB COACHING*\n--------------------------------------\n👤 *Ad Soyad:* ${name}\n⚧ *Cinsiyet:* ${gender === 'Male' ? 'Erkek' : 'Kadın'}\n🎂 *Yaş:* ${age}\n📱 *WhatsApp:* ${phone}\n📌 *Seçilen Program:* ${program}\n🎯 *Ana Hedef:* ${goal}\n🏋️ *Deneyim:* ${exp}\n⚖️ *Kilo:* ${weight} kg | 📏 *Boy:* ${height} cm\n📝 *Notlar:* ${notes}\n--------------------------------------\nKoç Mounib ile antrenmanlara başlamaya hazırım!`;
+            } else if (currentLanguage === 'ar') {
+                currentReportText = `💪 *طلب تدريب شخصي 1-على-1 - MOUNIB COACHING*\n--------------------------------------\n👤 *الاسم:* ${name}\n⚧ *الجنس:* ${gender === 'Male' ? 'ذكر' : 'أنثى'}\n🎂 *العمر:* ${age}\n📱 *الواتساب:* ${phone}\n📌 *البرنامج المختار:* ${program}\n🎯 *الهدف الرئيسي:* ${goal}\n🏋️ *الخبرة:* ${exp}\n⚖️ *الوزن:* ${weight} كجم | 📏 *الطول:* ${height} سم\n📝 *ملاحظات:* ${notes}\n--------------------------------------\nجاهز للبدء في التدريب مع الكوتش منير!`;
+            } else {
+                currentReportText = `💪 *NEW COACHING APPLICATION - MOUNIB COACHING*\n--------------------------------------\n👤 *Name:* ${name}\n⚧ *Gender:* ${gender}\n🎂 *Age:* ${age}\n📱 *WhatsApp:* ${phone}\n📌 *Selected Program:* ${program}\n🎯 *Primary Goal:* ${goal}\n🏋️ *Experience:* ${exp}\n⚖️ *Weight:* ${weight} kg | 📏 *Height:* ${height} cm\n📝 *Notes:* ${notes}\n--------------------------------------\nReady to start training with Coach Mounib!`;
+            }
             openWhatsApp(currentReportText);
         }
 
         function openWhatsApp(message) {
-            const encoded = encodeURIComponent(message);
-            const waUrl = `https://wa.me/${COACH_PHONE}?text=${encoded}`;
-            
-            showToast(currentLanguage === 'tr' ? "WhatsApp açılıyor..." : currentLanguage === 'ar' ? "جاري فتح الواتساب..." : "Opening WhatsApp...", "info");
-            
-            const win = window.open(waUrl, '_blank');
-            if (!win || win.closed || typeof win.closed === 'undefined') {
-                document.getElementById('app-fallback-box').classList.remove('hidden');
-                document.getElementById('app-fallback-link').href = waUrl;
-                window.location.href = waUrl;
+            currentReportText = message;
+            const waUrl = `https://wa.me/${COACH_PHONE}?text=${encodeURIComponent(message)}`;
+            const fallbackBox = document.getElementById('app-fallback-box');
+            const fallbackLink = document.getElementById('app-fallback-link');
+
+            // Open synchronously from the user's click to avoid popup blockers.
+            const popup = window.open(waUrl, '_blank');
+            if (!popup) {
+                fallbackLink.href = waUrl;
+                fallbackLink.rel = 'noopener noreferrer';
+                fallbackBox.classList.remove('hidden');
+                showToast('WhatsApp could not open automatically. Use the link below or copy your report.', 'error');
+            } else {
+                try { popup.opener = null; } catch (_) {}
+                fallbackBox.classList.add('hidden');
+                showToast(currentLanguage === 'tr' ? 'WhatsApp açılıyor...' : currentLanguage === 'ar' ? 'جاري فتح الواتساب...' : 'Opening WhatsApp...', 'success');
             }
         }
 
-        function copyFormattedReport() {
-            if(currentReportText) {
-                copyToClipboard(currentReportText, "Application Report Copied!");
+        async function copyFormattedReport() {
+            if (!currentReportText) {
+                showToast('There is no report to copy yet.', 'error');
+                return;
             }
+            await copyToClipboard(currentReportText, 'Report copied!');
         }
 
         function selectProgram(progName) {
-            document.getElementById('app-program').value = progName;
+            const select = document.getElementById('app-program');
+            if ([...select.options].some(option => option.value === progName)) {
+                select.value = progName;
+            }
             openModal();
         }
 
         function openModal() {
             const modal = document.getElementById('app-modal');
+            if (!modal) return;
             modal.classList.remove('opacity-0', 'pointer-events-none');
+            requestAnimationFrame(() => modal.classList.add('modal-visible'));
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('overflow-hidden');
+            const firstInput = modal.querySelector('input:not([type="radio"]), select, textarea');
+            if (firstInput) setTimeout(() => firstInput.focus(), 50);
         }
 
         function closeModal() {
             const modal = document.getElementById('app-modal');
+            if (!modal) return;
+            modal.classList.remove('modal-visible');
             modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('overflow-hidden');
         }
 
         function openBankDetails() {
             const modal = document.getElementById('bank-modal');
+            if (!modal) return;
             modal.classList.remove('opacity-0', 'pointer-events-none');
+            requestAnimationFrame(() => modal.classList.add('modal-visible'));
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('overflow-hidden');
         }
 
         function closeBankModal() {
             const modal = document.getElementById('bank-modal');
+            if (!modal) return;
+            modal.classList.remove('modal-visible');
             modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('overflow-hidden');
         }
 
         function toggleFaq(num) {
-            const ans = document.getElementById(`faq-ans-${num}`);
+            const answer = document.getElementById(`faq-ans-${num}`);
             const icon = document.getElementById(`faq-icon-${num}`);
-            ans.classList.toggle('hidden');
-            icon.classList.toggle('rotate-180');
+            const button = answer?.previousElementSibling;
+            if (!answer) return;
+            const isOpening = answer.classList.contains('hidden');
+            answer.classList.toggle('hidden', !isOpening);
+            if (icon) icon.classList.toggle('rotate-180', isOpening);
+            if (button) button.setAttribute('aria-expanded', String(isOpening));
         }
 
-        function copyToClipboard(text, msg) {
-            navigator.clipboard.writeText(text).then(() => {
-                showToast(msg || "Copied to clipboard!", "success");
-            });
+        async function copyToClipboard(value, message = 'Copied to clipboard!') {
+            try {
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(String(value));
+                } else {
+                    const temporary = document.createElement('textarea');
+                    temporary.value = String(value);
+                    temporary.setAttribute('readonly', '');
+                    temporary.style.position = 'fixed';
+                    temporary.style.opacity = '0';
+                    document.body.appendChild(temporary);
+                    temporary.select();
+                    const copied = document.execCommand('copy');
+                    temporary.remove();
+                    if (!copied) throw new Error('Clipboard copy was blocked');
+                }
+                showToast(message, 'success');
+                return true;
+            } catch (error) {
+                console.error('Clipboard error:', error);
+                showToast('Copy failed. Please select and copy the text manually.', 'error');
+                return false;
+            }
         }
 
-        function showToast(message, type) {
+        let toastTimeout;
+        function showToast(message, type = 'info') {
             const toast = document.getElementById('toast');
             const msgEl = document.getElementById('toast-message');
-            msgEl.innerText = message;
+            const icon = document.getElementById('toast-icon');
+            if (!toast || !msgEl) return;
+            msgEl.textContent = message;
+            if (icon) {
+                icon.className = type === 'success'
+                    ? 'fas fa-check-circle text-green-400 text-xl'
+                    : type === 'error'
+                        ? 'fas fa-exclamation-circle text-red-400 text-xl'
+                        : 'fas fa-info-circle text-amberGlow text-xl';
+            }
             toast.classList.remove('translate-x-full');
-            setTimeout(() => {
-                toast.classList.add('translate-x-full');
-            }, 3000);
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => toast.classList.add('translate-x-full'), 3500);
         }
 
-        // Initialize on load
-        window.onload = function() {
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeModal();
+                closeBankModal();
+                toggleMobileMenu(true);
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
             updateCalculator();
-        };
-    </script>
+            setLanguage(currentLanguage);
+        });
+</script>
+
+<script>
+(() => {
+    const initMotion = () => {
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduceMotion) return;
+        const sectionTargets = document.querySelectorAll('body > section, body > footer, section > .container, section > .max-w-7xl');
+        const cardTargets = document.querySelectorAll('.glass-card, .glass-card-amber');
+        const targets = new Set([...sectionTargets, ...cardTargets]);
+        targets.forEach((el) => {
+            if (el.closest('#app-modal, #bank-modal, header, #toast')) return;
+            el.classList.add('motion-reveal');
+        });
+        // Stagger adjacent cards for a polished, cascading entrance.
+        document.querySelectorAll('.grid').forEach((grid) => {
+            [...grid.children].forEach((child, index) => {
+                const card = child.querySelector('.glass-card, .glass-card-amber') || child;
+                if (card.classList.contains('motion-reveal')) card.dataset.motionDelay = String((index % 4) + 1);
+            });
+        });
+        if (!('IntersectionObserver' in window)) {
+            document.querySelectorAll('.motion-reveal').forEach(el => el.classList.add('is-visible'));
+            return;
+        }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -45px 0px' });
+        document.querySelectorAll('.motion-reveal').forEach(el => observer.observe(el));
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initMotion, { once: true });
+    else initMotion();
+})();
+</script>
+
 </body>
 </html>
 ```
