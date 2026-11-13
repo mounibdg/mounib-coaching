@@ -56,6 +56,7 @@ button,a{-webkit-tap-highlight-color:transparent}button:active,a:active{transfor
 </head>
 <body class="font-sans antialiased selection:bg-amberGlow selection:text-black custom-scrollbar">
 <div id="toast" class="fixed top-24 right-5 z-50 transform translate-x-full transition-transform duration-300 ease-in-out max-w-md"><div class="glass-card-amber p-4 rounded-xl shadow-amber-glow flex items-center gap-3 text-white"><i id="toast-icon" class="fas fa-info-circle text-amberGlow text-xl"></i><span id="toast-message" class="text-sm font-medium">Notification message</span></div></div>
+<a href="#programs" id="fx-ribbon" class="fx-ribbon"><span class="fx-dot"></span><span data-i18n="beta_ribbon">Beta open: first 3 clients coach free for 4 weeks</span><i class="fas fa-arrow-right"></i></a>
 <header class="sticky top-0 z-40 w-full glass-card border-b border-white/10">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
 <a href="#" class="flex items-center gap-3 group"><div class="w-10 h-10 rounded-xl bg-amberGlow/20 border border-amberGlow/50 flex items-center justify-center group-hover:scale-105 transition-transform"><i class="fas fa-dumbbell text-amberGlow text-lg"></i></div><div><span class="font-heading font-black text-xl tracking-wider text-white">MOUNIB<span class="text-amberGlow">.</span></span><span class="block text-[10px] tracking-widest text-gray-400 font-semibold uppercase" data-i18n="tagline">Physique Coaching</span></div></a>
@@ -93,6 +94,14 @@ button,a{-webkit-tap-highlight-color:transparent}button:active,a:active{transfor
 <section id="programs" class="py-20 relative bg-obsidian"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center max-w-3xl mx-auto mb-16"><h2 class="font-heading font-black text-3xl sm:text-5xl text-white tracking-tight"><span data-i18n="prog_sec_title_1">PHYSICS-BASED</span> <span class="text-amberGlow" data-i18n="prog_sec_title_2">OFFERS</span></h2>
 <p class="mt-4 text-gray-400 text-base sm:text-lg" data-i18n="prog_sec_subtitle">Select your protocol. Every package includes direct WhatsApp interaction, video exercise form audits, and custom progressive overload tracking.</p></div>
+<div id="beta-offer" class="fx-beta glass-card-amber rounded-3xl p-6 sm:p-8 mb-10 flex flex-col md:flex-row gap-8 items-center justify-between">
+<div class="flex-1 text-center md:text-start"><span class="fx-badge"><span class="fx-dot"></span><span data-i18n="beta_badge">BETA LAUNCH OFFER</span></span>
+<h3 class="font-heading font-black text-3xl sm:text-4xl text-white mt-4" data-i18n="beta_title">First 3 Clients Train Free</h3>
+<p class="text-gray-300 mt-2 max-w-xl mx-auto md:mx-0" data-i18n="beta_sub">Beta spots: 4 weeks of full 1-on-1 coaching with Coach Mounib, completely free.</p>
+<ul class="grid sm:grid-cols-2 gap-2 mt-5 text-sm text-gray-300 text-start"><li class="flex items-center gap-2"><i class="fas fa-check text-amberGlow text-xs"></i><span data-i18n="beta_f1">4 weeks of 1-on-1 coaching</span></li><li class="flex items-center gap-2"><i class="fas fa-check text-amberGlow text-xs"></i><span data-i18n="beta_f2">Custom training & nutrition plan</span></li><li class="flex items-center gap-2"><i class="fas fa-check text-amberGlow text-xs"></i><span data-i18n="beta_f3">Direct WhatsApp support & form checks</span></li><li class="flex items-center gap-2"><i class="fas fa-check text-amberGlow text-xs"></i><span data-i18n="beta_f4">No payment, no card required</span></li></ul></div>
+<div class="text-center shrink-0 md:w-64"><div class="fx-free font-heading font-black" data-i18n="beta_free">FREE</div><div class="text-xs text-gray-400" data-i18n="beta_value">Normally $75 / month</div>
+<div id="fx-dots" class="flex justify-center gap-2 my-4"></div><div id="fx-left" class="text-xs font-bold text-amberGlow uppercase tracking-wider"></div>
+<button id="fx-beta-btn" onclick="selectProgram('Free Beta Program (4 Weeks)')" class="mt-4 w-full py-3.5 rounded-xl bg-amberGlow text-obsidian font-heading font-black text-sm tracking-wide hover:bg-amberHover transition-colors shadow-amber-glow" data-i18n="beta_btn">CLAIM A FREE SPOT</button></div></div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"><div class="glass-card rounded-2xl p-6 flex flex-col justify-between border border-white/10 hover:border-amberGlow/40 transition-all duration-300 relative group"><div><div class="flex justify-between items-start mb-4"><span class="px-3 py-1 rounded-full bg-white/10 text-gray-300 text-xs font-bold uppercase tracking-wider" data-i18n="badge_flexible">Most Flexible</span><i class="fas fa-calendar-alt text-amberGlow text-xl"></i></div>
 <h3 class="font-heading font-bold text-xl text-white" data-i18n="card1_title">Monthly VIP Subscription</h3><p class="text-xs text-gray-400 mt-1" data-i18n="card1_subtitle">Flexible Month-to-Month</p>
 <div class="my-6"><div class="flex items-baseline gap-1"><span class="font-heading font-black text-4xl text-white">$75</span><span class="text-gray-400 text-sm" data-i18n="per_month">USD / month</span></div><span class="block text-xs text-amberGlow font-semibold mt-1">₺3,750 TRY / <span data-i18n="per_month_short">month</span></span></div><ul class="space-y-3 mb-8 text-sm text-gray-300"><li class="flex items-start gap-2"><i class="fas fa-check text-amberGlow mt-1 text-xs"></i><span data-i18n="c1_f1">Custom weekly workout & nutrition plan updates</span></li>
@@ -584,5 +593,96 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 </script>
 
+<style id="fx-anim">
+html{scroll-padding-top:6rem}
+.fx-ribbon{display:flex;align-items:center;justify-content:center;gap:.6rem;padding:.55rem 1rem;background:linear-gradient(90deg,#d97706,#f59e0b,#fbbf24,#f59e0b,#d97706);background-size:200% 100%;color:#0d0d0d;font:800 .72rem/1.2 Montserrat,sans-serif;letter-spacing:.06em;text-transform:uppercase;text-align:center;text-decoration:none}
+.fx-dot{width:.5rem;height:.5rem;border-radius:50%;background:#0d0d0d;display:inline-block;flex:none}
+.fx-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem .9rem;border-radius:999px;background:rgba(245,158,11,.14);border:1px solid rgba(245,158,11,.5);color:#fbbf24;font:800 .7rem Montserrat,sans-serif;letter-spacing:.12em}
+.fx-badge .fx-dot{background:#f59e0b;box-shadow:0 0 0 0 rgba(245,158,11,.7)}
+@property --fx-a{syntax:'<angle>';inherits:false;initial-value:0deg}
+.fx-beta.glass-card-amber{border:2px solid transparent;background:linear-gradient(#141414,#141414) padding-box,conic-gradient(from var(--fx-a),#f59e0b,#fde68a,#b45309,#f59e0b) border-box;box-shadow:0 0 60px rgba(245,158,11,.18)}
+.fx-free{font-size:4.5rem;line-height:1;background:linear-gradient(90deg,#fbbf24,#f59e0b,#fde68a,#f59e0b,#fbbf24);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
+.fx-spot{width:1.1rem;height:1.1rem;border-radius:50%;border:2px solid rgba(245,158,11,.5)}.fx-spot.on{background:#f59e0b;box-shadow:0 0 14px rgba(245,158,11,.8)}
+#fx-prog{position:fixed;top:0;left:0;right:0;height:3px;z-index:70;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,#d97706,#fbbf24)}
+[dir=rtl] #fx-prog{transform-origin:100% 50%}
+header.fx-scrolled{background:rgba(13,13,13,.92);box-shadow:0 12px 40px rgba(0,0,0,.55)}
+header{transition:background .4s ease,box-shadow .4s ease}
+header nav a{position:relative}header nav a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:#f59e0b;transform:scaleX(0);transform-origin:0 50%;transition:transform .35s cubic-bezier(.16,1,.3,1)}header nav a:hover::after{transform:scaleX(1)}
+section .glass-card,section .glass-card-amber{position:relative}
+section .glass-card::before,section .glass-card-amber::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .4s;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(245,158,11,.16),transparent 60%)}
+section .glass-card:hover::before,section .glass-card-amber:hover::before{opacity:1}
+section .glass-card:hover{border-color:rgba(245,158,11,.35)}
+button.bg-amberGlow,a.bg-amberGlow{position:relative;overflow:hidden}
+button.bg-amberGlow::after,a.bg-amberGlow::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);transition:left .7s cubic-bezier(.16,1,.3,1);pointer-events:none}
+button.bg-amberGlow:hover::after,a.bg-amberGlow:hover::after{left:130%}
+.fx-rip{position:absolute;border-radius:50%;background:rgba(255,255,255,.55);transform:scale(0);pointer-events:none;animation:fxRip .7s ease-out forwards}
+.fx-orb{position:absolute;border-radius:50%;filter:blur(110px);pointer-events:none;background:rgba(245,158,11,.12)}
+@keyframes fxRip{to{transform:scale(1);opacity:0}}
+@keyframes fxUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes fxShine{to{background-position:200% 0}}
+@keyframes fxSpin{to{--fx-a:360deg}}
+@keyframes fxPulse{0%{box-shadow:0 0 0 0 rgba(245,158,11,.7)}100%{box-shadow:0 0 0 10px rgba(245,158,11,0)}}
+@keyframes fxFloat{0%,100%{transform:translate(0,0)}50%{transform:translate(40px,-30px)}}
+@keyframes fxPop{0%{transform:scale(1)}40%{transform:scale(1.12);color:#fbbf24}100%{transform:scale(1)}}
+@keyframes fxIn{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:no-preference){
+body{animation:fxIn .8s ease both}
+.fx-ribbon{animation:fxShine 6s linear infinite}
+.fx-beta.glass-card-amber{animation:fxSpin 5s linear infinite}
+.fx-free,[data-i18n=hero_title_2]{animation:fxShine 5s linear infinite}
+[data-i18n=hero_title_2]{background-image:linear-gradient(90deg,#fbbf24,#f59e0b,#fde68a,#f59e0b,#fbbf24)!important;background-size:200% 100%}
+.fx-badge .fx-dot{animation:fxPulse 1.6s ease-out infinite}
+.fx-up{animation:fxUp .9s cubic-bezier(.16,1,.3,1) both;animation-delay:var(--d,0s)}
+.fx-orb{animation:fxFloat 14s ease-in-out infinite}
+.fx-pop{animation:fxPop .45s ease}
+}
+</style>
+<script>
+(() => {
+'use strict';
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const BETA_SPOTS_LEFT=3; /* change to 2, 1, 0 as spots are taken */
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const T=k=>translations[currentLanguage]?.[k]||translations.en[k]||'';
+const add={
+en:{beta_ribbon:'Beta open: first 3 clients coach free for 4 weeks',beta_badge:'BETA LAUNCH OFFER',beta_title:'First 3 Clients Train Free',beta_sub:'Beta spots: 4 weeks of full 1-on-1 coaching with Coach Mounib, completely free.',beta_f1:'4 weeks of 1-on-1 coaching',beta_f2:'Custom training & nutrition plan',beta_f3:'Direct WhatsApp support & form checks',beta_f4:'No payment, no card required',beta_free:'FREE',beta_value:'Normally $75 / month',beta_left:'{n} of 3 spots open',beta_full:'All beta spots are taken',beta_btn:'CLAIM A FREE SPOT',p_beta:'Free Beta Program (4 Weeks – $0)'},
+tr:{beta_ribbon:'Beta açık: ilk 3 danışan 4 hafta ücretsiz',beta_badge:'BETA LANSMAN FIRSATI',beta_title:'İlk 3 Danışan Ücretsiz',beta_sub:'Beta kontenjanı: Koç Mounib ile 4 hafta boyunca tam kapsamlı 1-e-1 koçluk, tamamen ücretsiz.',beta_f1:'4 hafta 1-e-1 koçluk',beta_f2:'Kişiye özel antrenman ve beslenme planı',beta_f3:'Doğrudan WhatsApp desteği ve form kontrolü',beta_f4:'Ödeme yok, kart gerekmez',beta_free:'ÜCRETSİZ',beta_value:'Normalde ayda $75',beta_left:'{n} / 3 kontenjan açık',beta_full:'Tüm beta kontenjanları doldu',beta_btn:'ÜCRETSİZ YERİ KAP',p_beta:'Ücretsiz Beta Programı (4 Hafta – $0)'},
+ar:{beta_ribbon:'عرض البيتا مفتوح: أول 3 عملاء تدريب مجاني 4 أسابيع',beta_badge:'عرض إطلاق البيتا',beta_title:'أول 3 عملاء تدريب مجاني',beta_sub:'مقاعد البيتا: 4 أسابيع تدريب شخصي 1-على-1 كامل مع الكوتش منير، مجاناً بالكامل.',beta_f1:'4 أسابيع تدريب شخصي 1-على-1',beta_f2:'خطة تدريب وتغذية مخصصة',beta_f3:'دعم مباشر عبر الواتساب وفحص التكنيك',beta_f4:'بدون دفع وبدون بطاقة',beta_free:'مجاناً',beta_value:'عادةً 75$ / شهرياً',beta_left:'{n} من 3 مقاعد متاحة',beta_full:'اكتملت جميع مقاعد البيتا',beta_btn:'احجز مقعدك المجاني',p_beta:'برنامج البيتا المجاني (4 أسابيع – 0$)'}};
+['en','tr','ar'].forEach(l=>Object.assign(translations[l],add[l]));
+
+/* free beta option in the application form (default while the offer is on) */
+const sel=$('#app-program'),o=new Option('','Free Beta Program (4 Weeks)');o.setAttribute('data-i18n','p_beta');sel.prepend(o);sel.value=o.value;
+$('#fx-dots').innerHTML=[0,1,2].map(i=>'<span class="fx-spot'+(i<BETA_SPOTS_LEFT?' on':'')+'"></span>').join('');
+const render=()=>{const l=$('#fx-left');if(l)l.textContent=BETA_SPOTS_LEFT>0?T('beta_left').replace('{n}',BETA_SPOTS_LEFT):T('beta_full');};
+if(BETA_SPOTS_LEFT<=0){$('#fx-beta-btn').hidden=true;}
+const _sl=setLanguage;setLanguage=function(l){_sl(l);render();};render();
+
+/* smooth FAQ */
+const _tf=toggleFaq;toggleFaq=function(n){_tf(n);const a=$('#faq-ans-'+n);if(!RM&&a&&!a.classList.contains('hidden'))a.animate([{opacity:0,transform:'translateY(-8px)'},{opacity:1,transform:'none'}],{duration:350,easing:'cubic-bezier(.16,1,.3,1)'});};
+
+if(RM)return;
+/* hero: staggered entrance + floating orbs */
+const hero=$('section');
+if(hero){['bottom-10 left-[8%] w-72 h-72','top-10 right-[6%] w-80 h-80'].forEach((c,i)=>{const d=document.createElement('div');d.className='fx-orb '+c+' absolute';d.style.animationDelay=(i*-6)+'s';hero.prepend(d);});
+ $$('.max-w-7xl > *',hero).forEach((el,i)=>{el.classList.add('fx-up');el.style.setProperty('--d',(0.1+i*0.12)+'s');});}
+/* scroll progress, header state, parallax */
+const bar=document.createElement('div');bar.id='fx-prog';document.body.append(bar);
+const hd=$('header'),orbs=$$('.fx-orb');let tick=false;
+const onScroll=()=>{tick=false;const y=scrollY,m=document.documentElement.scrollHeight-innerHeight;
+ bar.style.transform='scaleX('+(m>0?y/m:0)+')';hd.classList.toggle('fx-scrolled',y>20);
+ orbs.forEach((e,i)=>{e.style.marginTop=(y*(i?-.08:.12))+'px';});};
+addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(onScroll);}},{passive:true});onScroll();
+/* card spotlight + button ripple */
+document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('section .glass-card,section .glass-card-amber');if(!c)return;const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');},{passive:true});
+document.addEventListener('pointerdown',e=>{const b=e.target.closest&&e.target.closest('button.bg-amberGlow,a.bg-amberGlow');if(!b)return;const r=b.getBoundingClientRect(),s=Math.max(r.width,r.height)*2,d=document.createElement('span');d.className='fx-rip';d.style.cssText='width:'+s+'px;height:'+s+'px;left:'+(e.clientX-r.left-s/2)+'px;top:'+(e.clientY-r.top-s/2)+'px';b.append(d);setTimeout(()=>d.remove(),700);});
+/* count-up stats */
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(!en.isIntersecting)return;io.unobserve(en.target);const el=en.target,m=el.textContent.match(/^(\d+)(.*)$/);if(!m)return;const to=+m[1],t0=performance.now();
+ const step=t=>{const p=Math.min(1,(t-t0)/1400),v=Math.round(to*(1-Math.pow(1-p,3)));el.textContent=v+m[2];if(p<1)requestAnimationFrame(step);};requestAnimationFrame(step);}),{threshold:.6});
+$$('.font-extrabold.text-3xl.text-amberGlow').forEach(e=>io.observe(e));
+/* calculator results pop when they change */
+const mo=new MutationObserver(ms=>ms.forEach(m=>{const e=m.target.nodeType===3?m.target.parentElement:m.target;e.classList.remove('fx-pop');void e.offsetWidth;e.classList.add('fx-pop');}));
+['res-tdee','res-target','res-protein','res-split'].forEach(id=>mo.observe(document.getElementById(id),{childList:true,characterData:true,subtree:true}));
+})();
+</script>
 </body>
 </html>
