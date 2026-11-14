@@ -641,7 +641,7 @@ body{animation:fxIn .8s ease both}
 (() => {
 'use strict';
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
-const BETA_SPOTS_LEFT=3; /* change to 2, 1, 0 as spots are taken */
+const BETA_SPOTS_LEFT=2; /* change to 2, 1, 0 as spots are taken */
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const T=k=>translations[currentLanguage]?.[k]||translations.en[k]||'';
 const add={
